@@ -1,0 +1,51 @@
+#+TITLE: Reproducible with research with emacs (and org-mode)
+#+AUTHOR: Sébastien Le Maguer
+#+EMAIL: slemaguer@coli.uni-saarland.de
+#+DATE: 12 May 2017
+#+DESCRIPTION:
+#+KEYWORDS:
+#+LANGUAGE:  fr
+#+OPTIONS:   H:2 num:t toc:nil  \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t
+#+SELECT_TAGS: export
+#+EXCLUDE_TAGS: noexport
+#+SETUPFILE: ~/environment/src/non-install-utils/org-html-themes/setup/theme-bigblow.setup
+
+
+* Introduction
+** Introduction
+*** What do I mean by reproducible research
+- *Being able to reproduce experiments*
+- Identify the state of the experiments (what has been done/what remains to be done)
+- Understand the process which leads to the current state
+*** Why using emacs ?
+- because you have all the tools to help you in this editor
+* Emacs basics [%]
+** TODO General informations
+** TODO Graphic overview
+** TODO Graphic overview with a screenshot
+** TODO Emacs configuration
+* Project/scm [%]
+** TODO Projectile
+** TODO Magit
+* Org-mode - Introduction [0%]
+** TODO General informations
+** TODO Task management
+* Org-mode - writing documents [0%]
+** TODO The header
+** TODO The body
+** TODO Mathematical formula
+** TODO Source code formatting.....
+** TODO Executing some code
+* Org-mode - some extra [%]
+* Org-mode/emacs as a "pandoc" equivalent [%]
+** TODO But...why ?!
+** TODO Preliminary configuration
+** TODO A project example - architecture
+** TODO A project example - org part
+** TODO A project example - gradle part
+** TODO A project example - to run
+* Conclusion [%]
+** TODO Summary
+** TODO The most interesting slide of this course....
+[FIXME: adding link]
+* COMMENT some extra configuration
