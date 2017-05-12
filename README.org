@@ -1,0 +1,7 @@
+* Reproducible with research with emacs (and org-mode)
+
+This repository contains the material of the reproducible research lecture session which focuses on
+RR using emacs.
+
+** TODO Architecture
+** TODO Explanation
