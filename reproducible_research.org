@@ -18,12 +18,67 @@
 - Identify the state of the experiments (what has been done/what remains to be done)
 - Understand the process which leads to the current state
 *** Why using emacs ?
-- because you have all the tools to help you in this editor
-* Emacs basics [%]
-** TODO General informations
+- Because we have all the tools to help you in this editor
+* Emacs basics [16%]
+** DONE General informations
+CLOSED: [2017-05-16 Tue 21:24]
+- Global informations
+  - EMACS = Editor MACroS
+  - Development started during the 70s
+  - Multiple variation *GNU Emacs*, XEmacs, AquaMacs...
+  - Compatible Unix-Like (*Linux*, macos, ...) + windows
+- Global key concepts
+  - 3 modifier keys = CTRL, MAJ, META
+  - META = alt on PC,  command on MAC
+  - Refcard = [FIXME: link]
 ** TODO Graphic overview
-** TODO Graphic overview with a screenshot
+[FIXME: adding a screenshot]
+** TODO Graphic overview with a legend
+[FIXME: adding a screenshot]
+** TODO Commands
 ** TODO Emacs configuration
+- Global
+  - Configuration language = *elisp* (emacs lisp)
+  - Programming language \Rightarrow a little bit of investment....
+  - ....but powerful
+- Entry point = ~/.emacs or ~/.emacs.d/init.el
+  - You can put everything there...
+  - Or import other files
+  - *Not the focus of this course, a baseline configuration will be provided later
+* Hands-on emacs [33%]
+** TODO Compilation/installation
+- Pre-configuration
+- Compilation/installation
+  1. Retrieve the following shell script [FIXME: url]
+  2. Execute the shell script with the following syntax
+#+begin_src bash
+bash emacs_install.sh -j 2 $HOME/environment/local
+#+end_src
+- Running
+** TODO The most important keys in the world ! (or maybe not but still)
+- M-x = starting a command
+- C-h, C-m, C-k, C-f = documentation shortcut
+- [FIXME: other shortcut]
+** DONE Having fun for 5min :D
+CLOSED: [2017-05-16 Tue 22:11]
+- Try to open some source code file (java, python, c, ...)
+- Try to open some tex file
+- Try to query the documentation, ...
+* Hands-on configured emacs [25%]
+** TODO Package management
+** TODO Install a minimal configuration
+** DONE Having fun for 5min
+CLOSED: [2017-05-16 Tue 22:11]
+- Try to open some source code file (java, python, c, ...)
+- Try to open some tex file
+- Try to query the documentation, ...
+- *Try to spot the differences*
+** TODO Bonus: configure a server/client architecture
+- Why? because it's faster :)
+- How to:
+  1. Retrieve the following shell script [FIXME: url]
+  2. Execute the shell script with the following syntax
+- Try to run the emacs command
 * Project/scm [%]
 ** TODO Projectile
 ** TODO Magit
