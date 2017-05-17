@@ -8,7 +8,53 @@
 #+OPTIONS:   H:2 num:t toc:nil  \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t
 #+SELECT_TAGS: export
 #+EXCLUDE_TAGS: noexport
-#+SETUPFILE: ~/environment/src/non-install-utils/org-html-themes/setup/theme-bigblow.setup
+# #+SETUPFILE: ~/environment/src/non-install-utils/org-html-themes/setup/theme-bigblow.setup
+
+# ##############################################################################################################################
+# #+REVEAL_MATHJAX_URL: http://localhost:8000/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML
+#+HTML_MATHJAX: align: left indent: 5em tagside: left font: Neo-Euler
+# ##############################################################################################################################
+
+# ##############################################################################################################################
+#+REVEAL_THEME: w3c
+#+REVEAL_TRANS: none
+#+REVEAL_INIT_SCRIPT: width: "100%",
+#+REVEAL_INIT_SCRIPT: height: "100%",
+#+REVEAL_INIT_SCRIPT: margin: 0,
+#+REVEAL_INIT_SCRIPT: minScale: 1,
+#+REVEAL_INIT_SCRIPT: maxScale: 1,
+#+REVEAL_PLUGINS: (markdown highlight)
+#+OPTIONS: reveal_progress:t, reveal_history:nil, reveal_control:nil, reveal_center:nil
+# ##############################################################################################################################
+
+# ##############################################################################################################################
+#+STARTUP: beamer
+#+STARTUP: oddeven
+#+LaTeX_CLASS: beamer
+#+LaTeX_CLASS_OPTIONS: [9pt]
+#+SELECT_TAGS: export
+#+EXCLUDE_TAGS: noexport
+#+BEAMER_THEME: progressbar
+#+LATEX_CMD: xelatex
+#+LaTeX_HEADER: \hypersetup{
+#+LaTeX_HEADER:   colorlinks = true,
+#+LaTeX_HEADER:   linkcolor = black
+#+LaTeX_HEADER: }
+#+latex_header: \usepackage{subfig}
+#+LaTeX_HEADER: \usepackage{bibentry}
+#+LaTeX_HEADER: \usepackage{multimedia}
+#+LaTeX_HEADER: \makeatletter
+#+LaTeX_HEADER: \let\@mycite\@cite
+#+LaTeX_HEADER: \def\@cite#1#2{{\hypersetup{linkcolor=green!60!black}[{#1\if@tempswa , #2\fi}]}}
+#+LaTeX_HEADER: \makeatother
+# ##############################################################################################################################
+
+# ##############################################################################################################################
+# Local Variables:
+# ispell-check-comments: exclusive
+# ispell-local-dictionary: "american"
+# End:
+# ##############################################################################################################################
 
 
 * Introduction
