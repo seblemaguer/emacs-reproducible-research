@@ -59,13 +59,24 @@
 
 * Introduction
 ** Introduction
-*** What do I mean by reproducible research
+#+begin_quote
+*What do I mean by reproducible research*
+
 - *Being able to reproduce experiments*
 - Identify the state of the experiments (what has been done/what remains to be done)
 - Understand the process which leads to the current state
-*** Why using emacs ?
+#+end_quote
+
+#+begin_quote
+*Why using emacs ?*
 - Because we have all the tools to help you in this editor
-* Emacs basics [16%]
+#+end_quote
+
+#+begin_quote
+*Some pre-requisite*
+- Linux ubuntu 16.04 / bash
+#+end_quote
+* Emacs basics [40%]
 ** DONE General informations
 CLOSED: [2017-05-16 Tue 21:24]
 - Global informations
@@ -76,13 +87,14 @@ CLOSED: [2017-05-16 Tue 21:24]
 - Global key concepts
   - 3 modifier keys = CTRL, MAJ, META
   - META = alt on PC,  command on MAC
-  - Refcard = [FIXME: link]
+- Commands [FIXME: minor explanation]
 ** TODO Graphic overview
 [FIXME: adding a screenshot]
 ** TODO Graphic overview with a legend
 [FIXME: adding a screenshot]
-** TODO Commands
-** TODO Emacs configuration
+** TODO Major mode / minor mode
+** DONE Emacs configuration
+CLOSED: [2017-05-17 Wed 13:31]
 - Global
   - Configuration language = *elisp* (emacs lisp)
   - Programming language \Rightarrow a little bit of investment....
@@ -90,32 +102,104 @@ CLOSED: [2017-05-16 Tue 21:24]
 - Entry point = ~/.emacs or ~/.emacs.d/init.el
   - You can put everything there...
   - Or import other files
-  - *Not the focus of this course, a baseline configuration will be provided later
-* Hands-on emacs [33%]
-** TODO Compilation/installation
+  - *Not the focus of this course*: a baseline configuration will be provided later
+* Hands-on emacs [75%]
+** DONE Environment preparation
+CLOSED: [2017-05-17 Wed 12:50]
 - Pre-configuration
-- Compilation/installation
-  1. Retrieve the following shell script [FIXME: url]
-  2. Execute the shell script with the following syntax
+  - Package installation (ubuntu)
+#+begin_src emacs-lisp
+sudo apt-get install [FIXME: package]
+#+end_src
+  - Copy the following the following profile into ~/.profile : https://raw.githubusercontent.com/seblemaguer/emacs-reproducible-research/master/assets/configuration/profile
+  - For future use Adapt your bashrc by adding
+#+begin_src sh
+# Include profile variables
+source ~/.profile
+#+end_src
+  - For the current session, write in the current terminal
+#+begin_src sh
+source ~/.profile
+echo $PATH # Check that the path is correct
+#+end_src
+** DONE Compilation/installation/running
+CLOSED: [2017-05-17 Wed 12:51]
+  - Compilation/installation
+    1. Retrieve the installation shell script: [[https://raw.githubusercontent.com/seblemaguer/emacs-reproducible-research/master/assets/scripts/emacs_install.sh]]
+    2. Execute the shell script with the following syntax
 #+begin_src bash
 bash emacs_install.sh -j 2 $HOME/environment/local
 #+end_src
 - Running
+#+begin_src sh
+emacs
+#+end_src
 ** TODO The most important keys in the world ! (or maybe not but still)
 - M-x = starting a command
 - C-h, C-m, C-k, C-f = documentation shortcut
-- [FIXME: other shortcut]
+- C-x f, C-x s, C-x w = open file/save buffer
+- refcard = https://www.gnu.org/software/emacs/refcards/pdf/refcard.pdf
 ** DONE Having fun for 5min :D
 CLOSED: [2017-05-16 Tue 22:11]
-- Try to open some source code file (java, python, c, ...)
-- Try to open some tex file
-- Try to query the documentation, ...
-* Hands-on configured emacs [25%]
-** TODO Package management
+*** Try to do this
+- Open some source code file (java, python, c, ...)
+- Open some tex file
+- Query the documentation, ...
+*** Some feedback ?
+- What is easy ?
+- What is difficult ?
+- Do you have an idea of how to improve
+*** Some questions ?
+- Don't hesitate to be exhaustive or say if you don't understand something
+* Hands-on configured emacs [50%]
+** DONE Package management
+CLOSED: [2017-05-17 Wed 13:06]
+- Emacs has a package management system
+- *use-package* = helper to install and *configure* a package
+  - URL = https://github.com/jwiegley/use-package/
+  - A baseline example
+#+begin_src emacs-lisp
+  (use-package spaceline-all-the-icons ;; The package to install
+    :ensure t ;; Force the installation
+    :after spaceline ;; Initialisation after the given package
+
+    ;; Preconfiguration, *before* the package is loaded
+    :init
+
+    (setq spaceline-all-the-icons-separator-type 'wave
+          spaceline-separator-dir-left '(left . left)
+          spaceline-separator-dir-right '(right . right)
+          spaceline-minor-modes-separator " ")
+
+    ;; Configuration, *after* the package is loaded
+    :config
+
+    (spaceline-all-the-icons-theme)
+    (require 'spaceline-config)
+    (spaceline-helm-mode)
+    (use-package info+
+      :ensure t
+      :init
+      (spaceline-info-mode))
+
+    (use-package fancy-battery
+      :ensure t
+      :init
+      (add-hook 'after-init-hook #'fancy-battery-mode)
+      (display-battery-mode -1))
+
+    (spaceline-all-the-icons--setup-paradox)
+    )
+#+end_src
+- To list available packages use the command: =list-packages=
 ** TODO Install a minimal configuration
+- Retrieve the following file:
+- Copy it into =~/.emacs.d/init.el=
+- Open emacs, it should look like that:
+[FIXME: screenshot]
 ** DONE Having fun for 5min
 CLOSED: [2017-05-16 Tue 22:11]
-- Try to open some source code file (java, python, c, ...)
+** - Try to open some source code file (java, python, c, ...)
 - Try to open some tex file
 - Try to query the documentation, ...
 - *Try to spot the differences*
