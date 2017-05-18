@@ -151,7 +151,7 @@ CLOSED: [2017-05-16 Tue 22:11]
 - Do you have an idea of how to improve
 *** Some questions ?
 - Don't hesitate to be exhaustive or say if you don't understand something
-* Hands-on configured emacs [50%]
+* Hands-on configured emacs [40%]
 ** DONE Package management
 CLOSED: [2017-05-17 Wed 13:06]
 - Emacs has a package management system
@@ -193,13 +193,23 @@ CLOSED: [2017-05-17 Wed 13:06]
 #+end_src
 - To list available packages use the command: =list-packages=
 ** TODO Install a minimal configuration
-- Retrieve the following file:
+- Retrieve the following file: https://raw.githubusercontent.com/seblemaguer/emacs-reproducible-research/master/assets/configuration/init.el
 - Copy it into =~/.emacs.d/init.el=
 - Open emacs, it should look like that:
 [FIXME: screenshot]
+** TODO Some main functionalities
+- Buffer management
+  - Using C-x C-b to open the ibuffer list
+- File/directory management
+  - Using C-x C-r to list the recently opened files
+  - Using C-x C-d to list directories
+- VC/Project management (see the next section)
+  - Main shortcut = <f4>
+- Agenda management (see the section about org-mode)
+  - Main shortcut = <f12>
 ** DONE Having fun for 5min
 CLOSED: [2017-05-16 Tue 22:11]
-** - Try to open some source code file (java, python, c, ...)
+- Try to open some source code file (java, python, c, ...)
 - Try to open some tex file
 - Try to query the documentation, ...
 - *Try to spot the differences*
@@ -209,19 +219,124 @@ CLOSED: [2017-05-16 Tue 22:11]
   1. Retrieve the following shell script [FIXME: url]
   2. Execute the shell script with the following syntax
 - Try to run the emacs command
-* Project/scm [%]
-** TODO Projectile
-** TODO Magit
+* Project/scm [40%]
+** DONE Project management
+CLOSED: [2017-05-18 Thu 13:39]
+- Multiple tools available but we focus on *projectile*
+- Repository = https://github.com/bbatsov/projectile
+- Idea:
+#+begin_quote
+ The concept of a project is pretty basic - just a folder containing
+ special file. Currently git, mercurial, darcs and bazaar repos are
+ considered projects by default. So are lein, maven, sbt, scons, rebar
+ and bundler projects.
+#+end_quote
+- Prefix : C-x p (see configuration file)
+- Some useful commands
+  - C-c p f = open file *in the project*
+  - C-c p h = open helm to manipulate projectile
+** TODO Projectile - example
+Adding video
+** DONE Git
+CLOSED: [2017-05-18 Thu 13:50]
+- Main tools is *magit*
+  - Repository = https://github.com/magit/magit
+  - Lots of avantages:
+    - All the functionality
+    - Easy to use
+    - Interface with github (magithub = https://github.com/vermiculus/magithub/)
+  - Entry command = =magit-status=
+- History of a file
+  - Tool = magit-timemachine
+  - Repository = https://github.com/pidu/git-timemachine
+  - Command = =git-timemachine=
+** TODO Magit - example
+Adding video
+** TODO Git-timemachine - example
+Adding video
 * Org-mode - Introduction [0%]
 ** TODO General informations
+#+begin_quote
+Org mode is for keeping notes, maintaining TODO lists, planning
+projects, and authoring documents with a fast and effective plain-text
+system.
+#+end_quote
+- Also
+  - spreadsheet
+  - bibtex/reference
+  - ...
 ** TODO Task management
-* Org-mode - writing documents [0%]
-** TODO The header
-** TODO The body
-** TODO Mathematical formula
-** TODO Source code formatting.....
-** TODO Executing some code
-* Org-mode - some extra [%]
+* Org-mode - writing documents [28%]
+** DONE The header
+CLOSED: [2017-05-18 Thu 13:58]
+- Summary = https://github.com/fniessen/refcard-org-mode
+- "Minimum" header
+#+begin_src org :eval never-export
+#+TITLE: Reproducible with research with emacs (and org-mode)
+#+AUTHOR: Sébastien Le Maguer
+#+EMAIL: slemaguer@coli.uni-saarland.de
+#+DATE: 12 May 2017
+#+end_src
+- Can be adapted for the output (Example Latex)
+#+begin_src org :eval never-export
+# ##############################################################################################################################
+#+STARTUP: beamer
+#+STARTUP: oddeven
+#+LaTeX_CLASS: beamer
+#+LaTeX_CLASS_OPTIONS: [9pt]
+#+SELECT_TAGS: export
+#+EXCLUDE_TAGS: noexport
+#+BEAMER_THEME: progressbar
+#+LATEX_CMD: xelatex
+#+LaTeX_HEADER: \hypersetup{
+#+LaTeX_HEADER:   colorlinks = true,
+#+LaTeX_HEADER:   linkcolor = black
+#+LaTeX_HEADER: }
+#+latex_header: \usepackage{subfig}
+#+LaTeX_HEADER: \usepackage{bibentry}
+#+LaTeX_HEADER: \usepackage{multimedia}
+#+LaTeX_HEADER: \makeatletter
+#+LaTeX_HEADER: \let\@mycite\@cite
+#+LaTeX_HEADER: \def\@cite#1#2{{\hypersetup{linkcolor=green!60!black}[{#1\if@tempswa , #2\fi}]}}
+#+LaTeX_HEADER: \makeatother
+# ##############################################################################################################################
+#+end_src
+** DONE The body - architecture
+CLOSED: [2017-05-18 Thu 14:10]
+- Summary = https://github.com/fniessen/refcard-org-mode
+- Sections
+#+begin_src org :eval never-export
+,* Header 1
+,** Header 2
+,*** Header 3
+...
+#+end_src
+- Lists
+#+begin_src org :eval never-export
+- list 1
+  - list 11
+    + list111 with other bullets
+    + list112 with other bullets
+  - list 12
+    1. list121 as enumerate
+    2. list122 as enumarate
+#+end_src
+** TODO The body - content formatting
+- Summary = https://github.com/fniessen/refcard-org-mode
+- Text formatting
+#+begin_src org :eval never-export
+/Emphasize/ (italics), *strongly* (bold), and */very strongly/* (bold italics).
+#+end_src
+- Paragraph separated by an empty line
+- Horizontal rule is done using *5* dashes
+- Links
+- Mathematical formula exactly like latex
+** TODO The body - table
+** TODO Source code formatting
+** TODO Exporting
+** TODO Hands
+* Org-mode - litterate programming [0%]
+** TODO
 * Org-mode/emacs as a "pandoc" equivalent [%]
 ** TODO But...why ?!
 ** TODO Preliminary configuration
