@@ -270,6 +270,7 @@ system.
 ** DONE The header
 CLOSED: [2017-05-18 Thu 13:58]
 - Summary = https://github.com/fniessen/refcard-org-mode
+- For the meta-data
 - "Minimum" header
 #+begin_src org :eval never-export
 #+TITLE: Reproducible with research with emacs (and org-mode)
@@ -334,18 +335,51 @@ CLOSED: [2017-05-18 Thu 14:10]
 ** TODO The body - table
 ** TODO Source code formatting
 ** TODO Exporting
-** TODO Hands
+- Different kind of exporter (HTML, reveal, LaTeX, Beamer, Markdown, ...)
+- Command to export = C-c C-e then a dedicated buffer opens:
+** TODO Having fun for 5min
+- Let's try to write a small document (nothing big)
+- Export it in latex and HTML
 * Org-mode - litterate programming [0%]
-** TODO
-* Org-mode/emacs as a "pandoc" equivalent [%]
-** TODO But...why ?!
+** TODO What is litterate programming
+- Introduced by D. Knuth [FIXME: ref]
+#+begin_quote
+Literate programming is a programming paradigm introduced by Donald
+Knuth in which a program is given as an explanation of the program
+logic in a natural language, such as English, interspersed with
+snippets of macros and traditional source code, from which a
+compilable source code can be generated.
+#+end_quote
+** TODO How to handle it with org-mode
+** TODO Dealing with results/source/...
+* Org-mode/emacs as a "pandoc" equivalent [0%]
+** But...why ?!
+- Problem: how to deal with massive data/time consuming experiments?
+- Solution:
+  1. Design the experiments using workflow management tools (make, gradle, ...)
+  2. In the last *experimental stage* Format the results in a certain way (csv, ....)
+  3. Design the org document assuming these results are available
+  4. Call emacs to render the org-mode
 ** TODO Preliminary configuration
 ** TODO A project example - architecture
 ** TODO A project example - org part
 ** TODO A project example - gradle part
 ** TODO A project example - to run
-* Conclusion [%]
-** TODO Summary
-** TODO The most interesting slide of this course....
+* Conclusion [50%]
+** DONE Summary
+CLOSED: [2017-05-18 Thu 14:42]
+- (Quick) Introduction to emacs
+  - Main concepts: buffer, files, windows, commands, ...
+  - Main commands: M-x, C-h m, C-h k, ...
+  - Package management
+  - A baseline configuration \Rightarrow you can modify it :D
+- (Quick) Introduction to org-mode
+  - Todo lists + Agenda management
+  - Writing documents using org-mode
+  - Exporting documents using org-mode
+- Reproducible research
+  - Litterate programming with org-mode
+  - Invocating org-mode to generate documentation from a project
+** TODO How to go further
 [FIXME: adding link]
 * COMMENT some extra configuration
