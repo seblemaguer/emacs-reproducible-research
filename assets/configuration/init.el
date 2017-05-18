@@ -562,9 +562,131 @@
 ;; Org-mode
 ;; ============================================================================================
 
-;; == TODO part
+;; == Global part
+(use-package org
+  :ensure t
+  :config
+
+  ;; Global
+  (setq org-startup-indented t
+	org-enforce-todo-dependencies t
+	org-cycle-separator-lines 2
+	org-blank-before-new-entry (quote ((heading) (plain-list-item . auto)))
+	org-insert-heading-respect-content nil
+	org-reverse-note-order nil
+	org-show-following-heading t
+	org-show-hierarchy-above t
+	org-show-siblings (quote ((default)))
+	org-id-method (quote uuidgen)
+	org-deadline-warning-days 30
+	org-table-export-default-format "orgtbl-to-csv"
+	org-src-window-setup 'other-frame ; Use the current window for C-c ' source editing
+	org-clone-delete-id t)
+
+  ;; Todo part
+  (setq org-todo-keywords '((sequence
+			     "TODO(t)" "REVIEW(r)" "NEXT(n)" "STARTED(s)"
+			     "WAITING(w)" "DELEGATED(e)" "MAYBE(m)" "|"
+			     "DONE(d)" "NOTE(n)" "DEFERRED(f)" "CANCELLED(c@/!)"))
+
+	org-todo-state-tags-triggers '(("CANCELLED" ("CANCELLED" . t))
+				       ("WAITING" ("WAITING" . t))
+				       ("HOLD" ("WAITING" . t) ("HOLD" . t))
+				       (done ("WAITING") ("HOLD"))
+				       ("TODO" ("WAITING") ("CANCELLED") ("HOLD"))
+				       ("IN PROGRESS" ("NEXT") ("WAITING") ("CANCELLED") ("HOLD"))
+				       ("NEXT" ("WAITING") ("CANCELLED") ("HOLD"))
+				       ("DONE" ("WAITING") ("CANCELLED") ("HOLD"))))
+
+
+  ;; Priority definition
+  (setq org-highest-priority ?A
+	org-lowest-priority ?E
+	org-default-priority ?C)
+
+  ;; Archiving
+  (setq org-archive-mark-done t
+	org-log-done 'time
+	org-archive-location "%s_archive::* Archived Tasks")
+  )
 
 ;; == Calendar / Agenda
+(use-package org-agenda
+  :config
+
+  ;; Todo part
+  (setq org-agenda-files
+        (append org-agenda-files '("~/Dropbox/org/todo/todo.org" "~/Dropbox/org/organisation/bookmarks.org")))
+  (setq org-agenda-files
+        (append org-agenda-files (directory-files "~/Calendars/" t "^.*\\.org$")))
+
+
+  ;; Deadline management
+  (setq org-agenda-include-diary nil)
+  (setq org-deadline-warning-days 7)
+  (setq org-timeline-show-empty-dates t)
+
+
+  (setq org-agenda-custom-commands
+        '(
+          ("D" todo "DONE")
+
+          ("w" "Work and administrative"
+           ((agenda)
+            (tags-todo "WORK")
+            (tags-todo "OFFICE")
+            (tags-todo "ADMIN")
+            ))
+
+          ("p" "personnal"
+           ((agenda)
+            (tags-todo "PERSONNAL")))
+
+          ("d" "Daily Action List"
+           (
+            (agenda "" ((org-agenda-ndays 1)
+                        (org-agenda-sorting-strategy
+                         (quote ((agenda time-up priority-down tag-up) )))
+                        (org-deadline-warning-days 0)
+                        ))))
+          )
+        ))
+
+;; == Capturing
+(use-package org-capture
+  :config
+
+  (setq org-capture-templates
+        `(
+          ;; ("t" "ToDo Entry" entry
+          ;;  (file+headline "~/Dropbox/org/todo/todo.org" "To sort")
+          ;;  (file ,(format "%s/third_parties/org-capture-templates/default.org" config-basedir))
+          ;;  :empty-lines-before 1)
+
+          ;; ("m" "mail" entry (file+headline "~/Dropbox/org/todo/todo.org" "Mailing")
+          ;;  (file ,(format "%s/third_parties/org-capture-templates/mail.org" config-basedir)))
+
+          ;; ("L" "Bookmark" entry
+          ;;  (file+headline "~/Dropbox/org/organisation/bookmarks.org" "To review")
+          ;;  (file ,(format "%s/third_parties/org-capture-templates/bookmark.org" config-basedir)))
+
+          ;; ("l" "RSS" entry
+          ;;  (file+headline "~/Dropbox/org/organisation/rss.org" "To review")
+          ;;  (file ,(format "%s/third_parties/org-capture-templates/rss.org" config-basedir)))
+
+
+          ;; ("H" "Hiwi calendar" entry
+          ;;  (file "~/Calendars/Calendar-MSP-part-timers.org")
+          ;;  (file ,(format "%s/third_parties/org-capture-templates/calendar.org" config-basedir)))
+
+          ;; ("M" "MSP calendar" entry
+          ;;  (file "~/Calendars/Calendar-MSP.org")
+          ;;  (file ,(format "%s/third_parties/org-capture-templates/calendar.org" config-basedir)))
+
+          ;; ("P" "Personnal calendar" entry
+          ;;  (file "~/Calendars/Calendar-Personal.org")
+          ;;  (file ,(format "%s/third_parties/org-capture-templates/calendar.org" config-basedir)))
+          )))
 
 ;; == Project/Org-mode agenda/todo list bindings
 (use-package org-projectile
@@ -575,8 +697,94 @@
   (setq org-agenda-files
         (append org-agenda-files (org-projectile:todo-files))))
 
-;; == Publishing
+;; == Editing/Publishing
+(use-package org-bullets :ensure t)
+(use-package org-notebook :ensure t)
 
+(setq org-list-allow-alphabetical t) ;; FIXME quoi qu'est ce?
+
+;; Add packages
+(setq org-ditaa-jar-path "/usr/share/ditaa/ditaa.jar"
+      org-plantuml-jar-path "/usr/share/plantuml/plantuml.jar")
+
+;; Display images directly in the buffer
+(setq org-babel-results-keyword "results")
+(add-hook 'org-babel-after-execute-hook 'bh/display-inline-images 'append)
+(defun bh/display-inline-images ()
+  (condition-case nil
+      (org-display-inline-images)
+    (error nil)))
+
+;; Add languages
+(use-package ob-ipython :ensure t)
+(org-babel-do-load-languages 'org-babel-load-languages
+			     '((emacs-lisp . t)
+			       (dot . t)
+			       (ditaa . t)
+			       ;; (R . t) [FIXME: see for R]
+			       (ipython . t)
+			       (ruby . t)
+			       (gnuplot . t)
+			       (clojure . t)
+			       (sh . t)
+			       (ledger . t)
+			       (org . t)
+			       (plantuml . t)
+			       (latex . t)))
+
+; Do not prompt to confirm evaluation [DANGEROUS BE CAREFULL]
+(setq org-confirm-babel-evaluate nil)
+
+; Define specific modes for specific tools
+(add-to-list 'org-src-lang-modes '("plantuml" . fundamental))
+(add-to-list 'org-src-lang-modes '("dot" . graphviz-dot))
+
+;; Don't enable this because it breaks access to emacs from my Android phone
+(setq org-startup-with-inline-images nil)
+
+
+;; Export
+;; HTML
+(use-package ox-html
+  :config
+  (use-package htmlize :ensure t)
+  (use-package ox-reveal :ensure t)
+
+  (setq org-html-xml-declaration '(("html" . "")
+				 ("was-html" . "<?xml version=\"1.0\" encoding=\"%s\"?>")
+				 ("php" . "<?php echo \"<?xml version=\\\"1.0\\\" encoding=\\\"%s\\\" ?>\"; ?>"))
+      org-export-html-inline-images t
+      org-export-with-sub-superscripts nil
+      org-export-html-style-extra "<link rel=\"stylesheet\" href=\"org.css\" type=\"text/css\" />"
+      org-export-html-style-include-default nil
+      org-export-htmlize-output-type 'css ; Do not generate internal css formatting for HTML exports
+      ))
+
+;; Latex
+(use-package ox-latex
+  :config
+  (setq org-latex-listings t
+	org-export-with-LaTeX-fragments t
+	org-latex-pdf-process (list "latexmk -f -pdf %f")))
+
+;; Beamer
+(use-package ox-beamer
+  :config
+  (defun my-beamer-bold (contents backend info)
+    (when (eq backend 'beamer)
+      (replace-regexp-in-string "\\`\\\\[A-Za-z0-9]+" "\\\\textbf" contents)))
+  (add-to-list 'org-export-filter-bold-functions 'my-beamer-bold))
+
+;; Docbook
+(setq org-export-docbook-xsl-fo-proc-command "fop %s %s"
+      org-export-docbook-xslt-proc-command "xsltproc --output %s /usr/share/xml/docbook/stylesheet/nwalsh/fo/docbook.xsl %s")
+
+;; Markdown
+
+(use-package ox-md
+  :config
+  (use-package ox-gfm :ensure t :config (require 'ox-gfm))
+  )
 ;; ============================================================================================
 ;; Mode line part
 ;; ============================================================================================
