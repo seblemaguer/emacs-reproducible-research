@@ -1,3 +1,19 @@
+#+TITLE: Emacs main configuration file
+#+AUTHOR: Sébastien Le Maguer
+#+EMAIL: slemaguer@coli.uni-saarland.de
+#+DATE: 19 May 2017
+#+DESCRIPTION:
+#+KEYWORDS:
+#+LANGUAGE:  fr
+#+OPTIONS:   H:3 num:t toc:t \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t
+#+SELECT_TAGS: export
+#+EXCLUDE_TAGS: noexport
+#+SETUPFILE: ~/environment/src/non-install-utils/org-html-themes/setup/theme-readtheorg.setup
+
+* Introduction
+This file contains the main configuration part for the session on
+"emacs & reproducible research". Technically this file is downloaded
+by the [[https://github.com/seblemaguer/emacs-reproducible-research/blob/master/assets/configuration/init.el][init.el]] file.
 * Global part
 ** Startup
 #+begin_src emacs-lisp
@@ -1247,3 +1263,4 @@
   ;; Paradox support for the mode line
   (spaceline-all-the-icons--setup-paradox))
 #+end_src
+* COMMENT some extra configuration
