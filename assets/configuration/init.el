@@ -32,9 +32,10 @@
 
 ;; == Main configuration part
 ;; Download if not exists
-(url-copy-file
- "https://raw.githubusercontent.com/seblemaguer/emacs-reproducible-research/master/assets/configuration/main.org"
- "~/.emacs.d/main.org" t t t)
+(unless (file-exists-p "~/.emacs.d/main.org")
+  (url-copy-file
+   "https://raw.githubusercontent.com/seblemaguer/emacs-reproducible-research/master/assets/configuration/main.org"
+   "~/.emacs.d/main.org" t t t))
 
 ;; And now we actually load the main part
 (use-package org
