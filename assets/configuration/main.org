@@ -44,16 +44,17 @@ by the [[https://github.com/seblemaguer/emacs-reproducible-research/blob/master/
 #+end_src
 ** Recentf
 #+begin_src emacs-lisp
-(use-package recentf
-  :config
-  (setq recentf-max-menu-items 100)
-  (recentf-mode 1)
+  (use-package recentf
+    :config
+    (setq recentf-max-menu-items 100)
+    (recentf-mode 1)
 
-  ;; Exclude file from recentf
-  (add-to-list 'recentf-exclude (format "%s/\\.emacs\\.d/.*" (getenv "HOME")))
-  (add-to-list 'recentf-exclude (format "%s/\\.ido\\.last" (getenv "HOME")))
-  (add-to-list 'recentf-exclude (format "%s/\\.recentf" (getenv "HOME")))
-  (add-to-list 'recentf-exclude ".*todo.org"))
+    ;; Exclude file from recentf
+    (add-to-list 'recentf-exclude (format "%s/\\.emacs\\.d/.*" (getenv "HOME")))
+    (add-to-list 'recentf-exclude (format "%s/\\.ido\\.last" (getenv "HOME")))
+    (add-to-list 'recentf-exclude (format "%s/\\.recentf" (getenv "HOME")))
+    (add-to-list 'recentf-exclude (format "%s/Calendars/.*" (getenv "HOME")))
+    (add-to-list 'recentf-exclude ".*todo.org"))
 #+end_src
 ** Backing up
 #+begin_src emacs-lisp
@@ -773,7 +774,174 @@ by the [[https://github.com/seblemaguer/emacs-reproducible-research/blob/master/
 
 (use-package groovy-imports :ensure t)
 #+end_src
-** Python
+** Latex
+*** Global
+#+begin_src emacs-lisp
+  (use-package tex
+    :ensure auctex
+    :config
+
+    ;; Indentation
+    (setq LaTeX-indent-level 4)
+    (setq LaTeX-item-indent 0)
+    (setq TeX-brace-indent-level 4)
+    (setq TeX-newline-function 'newline-and-indent)
+
+    ;; Spelling
+    (setq ispell-tex-skip-alist
+          '((
+             ;;("%\\[" . "%\\]") ; AMStex block comment...
+             ;; All the standard LaTeX keywords from L. Lamport's guide:
+             ;; \cite, \hspace, \hspace*, \hyphenation, \include, \includeonly
+             ;; \input, \label, \nocite, \rule (in ispell - rest included here)
+             ("\\\\addcontentsline"              ispell-tex-arg-end 2)
+             ("\\\\add\\(tocontents\\|vspace\\)" ispell-tex-arg-end)
+             ("\\\\\\([aA]lph\\|arabic\\)"   ispell-tex-arg-end)
+             ("\\\\author"                         ispell-tex-arg-end)
+             ;; New regexps here --- kjh
+             ("\\\\\\(text\\|paren\\)cite" ispell-tex-arg-end)
+             ("\\\\cite\\(t\\|p\\|year\\|yearpar\\)" ispell-tex-arg-end)
+             ("\\\\bibliographystyle"                ispell-tex-arg-end)
+             ("\\\\makebox"                  ispell-tex-arg-end 0)
+             ("\\\\e?psfig"                  ispell-tex-arg-end)
+             ("\\\\document\\(class\\|style\\)" .
+              "\\\\begin[ \t\n]*{[ \t\n]*document[ \t\n]*}"))
+            (
+             ;; delimited with \begin.  In ispell: displaymath, eqnarray,
+             ;; eqnarray*, equation, minipage, picture, tabular,
+             ;; tabular* (ispell)
+             ("\\(figure\\|table\\)\\*?"     ispell-tex-arg-end 0)
+             ("\\(equation\\|eqnarray\\)\\*?"     ispell-tex-arg-end 0)
+             ("list"                                 ispell-tex-arg-end 2)
+             ("program" . "\\\\end[ \t\n]*{[ \t\n]*program[ \t\n]*}")
+             ("verbatim\\*?"."\\\\end[ \t\n]*{[ \t\n]*verbatim\\*?[ \t\n]*}")
+             ("lstlisting\\*?"."\\\\end[ \t\n]*{[ \t\n]*lstlisting\\*?[ \t\n]*}"))))  ;; S
+    (add-hook 'LaTeX-mode-hook 'flyspell-mode)
+
+
+    ;; ;; Completion
+    ;; (setq TeX-auto-global (format "%s/auctex/style" generated-basedir))
+    ;; (add-to-list 'TeX-style-path TeX-auto-global)
+
+    (use-package company-auctex
+      :ensure t
+      :config
+      (company-auctex-init)
+      (add-to-list 'company-backends 'company-bibtex))
+
+
+    ;; Mathematics
+    (use-package latex-math-preview
+      :ensure t
+      :config
+      (add-hook 'LaTeX-mode-hook 'LaTeX-math-mode)
+      (use-package company-math :ensure t))
+
+    ;; Some minor improvement
+    (use-package latex-extra :ensure t)
+    (add-hook 'LaTeX-mode-hook 'outline-minor-mode)
+    (setq-default TeX-master nil)
+    (setq TeX-parse-self t)
+    (setq TeX-auto-save t)
+
+    ;; Folding at 100 instead of 80
+    (add-hook 'LaTeX-mode-hook
+              (lambda ()
+                (TeX-fold-mode t)
+                (setq fill-column 100)))
+
+    ;; We don't parse verbatim
+    (add-to-list 'LaTeX-verbatim-environments "comment")
+
+    ;; Bibtex
+    (use-package company-bibtex :ensure t)
+    (setq bibtex-align-at-equal-sign t
+          bibtex-autokey-name-year-separator ""
+          bibtex-autokey-year-title-separator ""
+          bibtex-autokey-titleword-first-ignore '("the" "a" "if" "and" "an")
+          bibtex-autokey-titleword-length 30
+          bibtex-autokey-titlewords 1)
+
+
+
+    ;; Compilation
+    (use-package auctex-latexmk
+      :ensure t
+      :config
+      (auctex-latexmk-setup)
+
+      ;; PDF by default
+      (TeX-global-PDF-mode 1)
+
+      ;; Not whow the results by default
+      (setq TeX-show-compilation nil)
+
+      ;; Redine TeX-output-mode to get the color !
+      (define-derived-mode TeX-output-mode TeX-special-mode "LaTeX Output"
+        "Major mode for viewing TeX output.
+    \\{TeX-output-mode-map} "
+        :syntax-table nil
+        (set (make-local-variable 'revert-buffer-function)
+             #'TeX-output-revert-buffer)
+
+        (set (make-local-variable 'font-lock-defaults)
+             '((("^!.*" . font-lock-warning-face) ; LaTeX error
+                ("^-+$" . font-lock-builtin-face) ; latexmk divider
+                ("^\\(?:Overfull\\|Underfull\\|Tight\\|Loose\\).*" . font-lock-builtin-face)
+                ;; .....
+                )))
+
+        ;; special-mode makes it read-only which prevents input from TeX.
+        (setq buffer-read-only nil))
+      )
+
+    ;; View / correlation
+    (setq TeX-source-correlate-method 'synctex)
+    (add-hook 'LaTeX-mode-hook 'TeX-source-correlate-mode)
+    )
+#+end_src
+*** References
+#+begin_src emacs-lisp
+  (use-package reftex
+    :config
+
+    (add-hook 'LaTeX-mode-hook 'turn-on-reftex)   ; with AUCTeX LaTeX mode
+    (setq reftex-save-parse-info t)
+    (setq reftex-enable-partial-scans t)
+    (setq reftex-use-multiple-selection-buffers t)
+    (setq reftex-plug-into-AUCTeX t)
+    (setq reftex-vref-is-default t)
+    (setq reftex-plug-into-AUCTeX t)
+    (setq reftex-use-multiple-selection-buffers t)
+    (setq reftex-cite-format
+          '(
+            (?\C-m . "\\cite[]{%l}")
+            (?t . "\\textcite{%l}")
+            (?a . "\\autocite[]{%l}")
+            (?p . "\\parencite{%l}")
+            (?f . "\\footcite[][]{%l}")
+            (?F . "\\fullcite[]{%l}")
+            (?x . "[]{%l}")
+            (?X . "{%l}")
+            ))
+
+    (setq font-latex-match-reference-keywords
+          '(("cite" "[{")
+            ("cites" "[{}]")
+            ("footcite" "[{")
+            ("footcites" "[{")
+            ("parencite" "[{")
+            ("textcite" "[{")
+            ("fullcite" "[{")
+            ("citetitle" "[{")
+            ("citetitles" "[{")
+            ("headlessfullcite" "[{")))
+
+    (setq reftex-cite-prompt-optional-args nil)
+    (setq reftex-cite-cleanup-optional-args t)
+    )
+#+end_src
+** TODO Python
 ** R
 #+begin_src emacs-lisp
 (use-package ess :ensure t)
@@ -1182,6 +1350,105 @@ by the [[https://github.com/seblemaguer/emacs-reproducible-research/blob/master/
   :config
   (use-package ox-gfm :ensure t :config (require 'ox-gfm)))
 #+end_src
+* PDF Viewing
+#+begin_src emacs-lisp
+  (use-package pdf-tools
+    :ensure t
+    :config
+
+    (pdf-tools-install t t t)
+    (add-hook 'pdf-view-mode-hook
+              (lambda ()
+                (pdf-misc-size-indication-minor-mode)
+                (pdf-links-minor-mode)
+                (pdf-isearch-minor-mode)))
+
+    ;; Use pdf-tools to open PDF files
+    (eval-after-load "latex"
+      (setq TeX-view-program-selection '((output-pdf "PDF Tools"))
+            TeX-source-correlate-start-server t))
+    (add-to-list 'auto-mode-alist (cons "\\.pdf$" 'pdf-view-mode))
+    (add-to-list 'org-file-apps
+                 '("\\.pdf\\'" . (lambda (file link) (org-pdfview-open link))))
+
+    ;; Update PDF buffers after successful LaTeX Aruns
+    (eval-after-load "latex"
+      (add-hook 'TeX-after-TeX-LaTeX-command-finished-hook
+                'TeX-revert-document-buffer))
+
+    ;; Key bindings
+    (defhydra hydra-pdftools (:color blue :hint nil)
+      "
+                                                                        ╭───────────┐
+         Move  History   Scale/Fit     Annotations  Search/Link    Do   │ PDF Tools │
+     ╭──────────────────────────────────────────────────────────────────┴───────────╯
+           ^^_g_^^      _B_    ^↧^    _+_    ^ ^     [_al_] list    [_s_] search    [_u_] revert buffer
+           ^^^↑^^^      ^↑^    _H_    ^↑^  ↦ _W_ ↤   [_am_] markup  [_o_] outline   [_i_] info
+           ^^_p_^^      ^ ^    ^↥^    _0_    ^ ^     [_at_] text    [_F_] link      [_d_] dark mode
+           ^^^↑^^^      ^↓^  ╭─^─^─┐  ^↓^  ╭─^ ^─┐   [_ad_] delete  [_f_] search link
+      _h_ ←pag_e_→ _l_  _N_  │ _P_ │  _-_    _b_     [_aa_] dired
+           ^^^↓^^^      ^ ^  ╰─^─^─╯  ^ ^  ╰─^ ^─╯   [_y_]  yank
+           ^^_n_^^      ^ ^  _r_eset slice box
+           ^^^↓^^^
+           ^^_G_^^
+     --------------------------------------------------------------------------------
+          "
+      ("\\" hydra-master/body "back")
+      ("<ESC>" nil "quit")
+      ("al" pdf-annot-list-annotations)
+      ("ad" pdf-annot-delete)
+      ("aa" pdf-annot-attachment-dired)
+      ("am" pdf-annot-add-markup-annotation)
+      ("at" pdf-annot-add-text-annotation)
+      ("y"  pdf-view-kill-ring-save)
+      ("+" pdf-view-enlarge :color red)
+      ("-" pdf-view-shrink :color red)
+      ("0" pdf-view-scale-reset)
+      ("H" pdf-view-fit-height-to-window)
+      ("W" pdf-view-fit-width-to-window)
+      ("P" pdf-view-fit-page-to-window)
+      ("n" pdf-view-next-page-command :color red)
+      ("p" pdf-view-previous-page-command :color red)
+      ("d" pdf-view-dark-minor-mode)
+      ("b" pdf-view-set-slice-from-bounding-box)
+      ("r" pdf-view-reset-slice)
+      ("g" pdf-view-first-page)
+      ("G" pdf-view-last-page)
+      ("e" pdf-view-goto-page)
+      ("o" pdf-outline)
+      ("s" pdf-occur)
+      ("i" pdf-misc-display-metadata)
+      ("u" pdf-view-revert-buffer)
+      ("F" pdf-links-action-perfom)
+      ("f" pdf-links-isearch-link)
+      ("B" pdf-history-backward :color red)
+      ("N" pdf-history-forward :color red)
+      ("l" image-forward-hscroll :color red)
+      ("h" image-backward-hscroll :color red))
+
+    (bind-keys :map pdf-view-mode-map
+               ("/" . hydra-pdftools/body)
+               ("<s-spc>" .  pdf-view-scroll-down-or-next-page)
+               ("g"  . pdf-view-first-page)
+               ("G"  . pdf-view-last-page)
+               ("l"  . image-forward-hscroll)
+               ("h"  . image-backward-hscroll)
+               ("j"  . pdf-view-next-page)
+               ("k"  . pdf-view-previous-page)
+               ("e"  . pdf-view-goto-page)
+               ("u"  . pdf-view-revert-buffer)
+               ("al" . pdf-annot-list-annotations)
+               ("ad" . pdf-annot-delete)
+               ("aa" . pdf-annot-attachment-dired)
+               ("am" . pdf-annot-add-markup-annotation)
+               ("at" . pdf-annot-add-text-annotation)
+               ("y"  . pdf-view-kill-ring-save)
+               ("i"  . pdf-misc-display-metadata)
+               ("s"  . pdf-occur)
+               ("b"  . pdf-view-set-slice-from-bounding-box)
+               ("r"  . pdf-view-reset-slice)))
+#+end_src
+
 * Graphic
 ** Theme (github)
 #+begin_src emacs-lisp
