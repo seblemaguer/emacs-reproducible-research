@@ -1371,10 +1371,10 @@ by the [[https://github.com/seblemaguer/emacs-reproducible-research/blob/master/
     (add-to-list 'org-file-apps
                  '("\\.pdf\\'" . (lambda (file link) (org-pdfview-open link))))
 
-    ;; Update PDF buffers after successful LaTeX Aruns
-    (eval-after-load "latex"
-      (add-hook 'TeX-after-TeX-LaTeX-command-finished-hook
-                'TeX-revert-document-buffer))
+    ;; ;; Update PDF buffers after successful LaTeX Aruns
+    ;; (eval-after-load "latex"
+    ;;   (add-hook 'TeX-after-TeX-LaTeX-command-finished-hook
+    ;;             'TeX-revert-document-buffer))
 
     ;; Key bindings
     (defhydra hydra-pdftools (:color blue :hint nil)
