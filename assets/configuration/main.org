@@ -123,6 +123,12 @@ by the [[https://github.com/seblemaguer/emacs-reproducible-research/blob/master/
 (icomplete-mode)
 (add-hook 'eval-expression-minibuffer-setup-hook #'eldoc-mode)
 #+end_src
+** Documentation
+#+begin_src emacs-lisp
+  (global-set-key (kbd "<f1>") 'info)
+  (global-set-key (kbd "<S-f1>") 'man-follow)
+  (global-set-key (kbd "<C-f1>") 'info-lookup-symbol)
+#+end_src
 ** Keys
 #+begin_src emacs-lisp
 (use-package hydra :ensure t)
@@ -628,13 +634,6 @@ by the [[https://github.com/seblemaguer/emacs-reproducible-research/blob/master/
       "Go back to project selection."
       (projectile-switch-project))
 
-    (def-projectile-commander-method ?F
-      "Git fetch."
-      (magit-status)
-      (if (fboundp 'magit-fetch-from-upstream)
-          (call-interactively #'magit-fetch-from-upstream)
-        (call-interactively #'magit-fetch-current)))
-
     (def-projectile-commander-method ?j
       "Jack-in."
       (let* ((opts (projectile-current-project-files))
@@ -671,7 +670,10 @@ by the [[https://github.com/seblemaguer/emacs-reproducible-research/blob/master/
     (use-package magit-gh-pulls :ensure t)
     (use-package magit-gitflow :ensure t)
     (use-package magit-popup :ensure t)
-    (use-package magit-rockstar :ensure t))
+    (use-package magit-rockstar :ensure t)
+
+    ;; Keys
+    (global-set-key (kbd "<f4>") 'magit-status))
 
   ;; Magit interfaced with github
   (use-package magithub
@@ -721,7 +723,6 @@ by the [[https://github.com/seblemaguer/emacs-reproducible-research/blob/master/
 * Languages
 ** TODO Java/Groovy/Gradle
 #+begin_src emacs-lisp
-
 (use-package meghanada
   :ensure t
   :config
@@ -731,6 +732,7 @@ by the [[https://github.com/seblemaguer/emacs-reproducible-research/blob/master/
               (meghanada-mode t)
               (add-hook 'before-save-hook 'delete-trailing-whitespace)))
   )
+
 (use-package javadoc-lookup
   :ensure t
   :config
@@ -904,6 +906,7 @@ by the [[https://github.com/seblemaguer/emacs-reproducible-research/blob/master/
                           ))))
             )
           )
+
     ;; Agenda view shortcuts
     (use-package hydra
       :config
@@ -964,7 +967,8 @@ by the [[https://github.com/seblemaguer/emacs-reproducible-research/blob/master/
          (let ((org-agenda-include-inactive-timestamps t))
            (org-agenda-check-type t 'timeline 'agenda)
            (org-agenda-redo)))
-        ("q" (message "Abort") :exit t))))
+        ("q" (message "Abort") :exit t)))
+      (global-set-key (kbd "<f12>") 'org-agenda))
 #+end_src
 ** Capturing
 #+begin_src emacs-lisp
