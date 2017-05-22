@@ -254,8 +254,9 @@ CLOSED: [2017-05-18 Thu 13:50]
 Adding video
 ** TODO Git-timemachine - example
 Adding video
-* Org-mode - Introduction [0%]
-** TODO General informations
+* Org-mode - Introduction [25%]
+** DONE General informations
+CLOSED: [2017-05-19 Fri 16:10]
 #+begin_quote
 Org mode is for keeping notes, maintaining TODO lists, planning
 projects, and authoring documents with a fast and effective plain-text
@@ -265,7 +266,9 @@ system.
   - spreadsheet
   - bibtex/reference
   - ...
-** TODO Task management
+** TODO Task management - gtd principle
+** TODO Agenda/dash/...
+** TODO Capturing
 * Org-mode - writing documents [28%]
 ** DONE The header
 CLOSED: [2017-05-18 Thu 13:58]
@@ -330,7 +333,7 @@ CLOSED: [2017-05-18 Thu 14:10]
 #+end_src
 - Paragraph separated by an empty line
 - Horizontal rule is done using *5* dashes
-- Links
+- Links are in brackets
 - Mathematical formula exactly like latex
 ** TODO The body - table
 ** TODO Source code formatting
@@ -338,10 +341,11 @@ CLOSED: [2017-05-18 Thu 14:10]
 - Different kind of exporter (HTML, reveal, LaTeX, Beamer, Markdown, ...)
 - Command to export = C-c C-e then a dedicated buffer opens:
 ** TODO Having fun for 5min
-- Let's try to write a small document (nothing big)
-- Export it in latex and HTML
-* Org-mode - litterate programming [0%]
-** TODO What is litterate programming
+- Let's try to write a small document
+- Try to use everything we wrote before (a table, an image, ...)
+- Export it in latex and/or HTML
+* Org-mode - literate programming [0%]
+** TODO What is literate programming
 - Introduced by D. Knuth [FIXME: ref]
 #+begin_quote
 Literate programming is a programming paradigm introduced by Donald
