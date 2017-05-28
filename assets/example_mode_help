@@ -1,0 +1,1583 @@
+Enabled minor modes: Async-Bytecomp-Package Auto-Composition Auto-Compression Auto-Encryption
+Auto-Image-File Auto-Revert Blink-Cursor Button-Lock Column-Number Company Csv-Field-Index
+Delete-Selection Diff-Auto-Refine Diff-Hl Dired-Async Dired-Omit Electric-Indent Emojify
+Erc-Autojoin Erc-Button Erc-Fill Erc-Irccontrols Erc-List Erc-Match Erc-Menu Erc-Move-To-Prompt
+Erc-Netsplit Erc-Networks Erc-Noncommands Erc-Pcomplete Erc-Readonly Erc-Ring Erc-Stamp Erc-Track
+Fancy-Battery File-Name-Shadow Fixmee Flyspell Font-Lock Global-Company Global-Diff-Hl Global-Eldoc
+Global-Emojify Global-Fixmee Global-Font-Lock Global-Git-Commit Global-Hl-Line Global-Nlinum
+Global-Undo-Tree Gradle Icomplete Image-Diredx-Async Indent-Guide Indent-Guide-Global
+Info-Breadcrumbs-In-Mode-Line Ivy Line-Number Magit-Auto-Revert Mouse-Wheel Nlinum Org-Beamer
+Org-Bullets Org-Indent Override-Global Pdf-Occur-Global Prettify-Symbols Projectile Pyvenv Recentf
+Shell-Dirtrack Show-Smartparens Show-Smartparens-Global Size-Indication Smartparens
+Smartparens-Global Spaceline-Helm Spaceline-Info Tex-Pdf Tex-Source-Correlate Tooltip Transient-Mark
+Undo-Tree Volatile-Highlights Which-Function Yas Yas-Global
+
+(Information about these minor modes follows the major mode info.)
+
+Org mode defined in ‘org.el’:
+Outline-based notes management and organizer, alias
+"Carsten’s outline-mode for keeping track of everything."
+
+Org mode develops organizational tasks around a NOTES file which
+contains information about projects as plain text.  Org mode is
+implemented on top of Outline mode, which is ideal to keep the content
+of large files well structured.  It supports ToDo items, deadlines and
+time stamps, which magically appear in the diary listing of the Emacs
+calendar.  Tables are easily created with a built-in table editor.
+Plain text URL-like links connect to websites, emails (VM), Usenet
+messages (Gnus), BBDB entries, and any files related to the project.
+For printing and sharing of notes, an Org file (or a part of it)
+can be exported as a structured ASCII or HTML file.
+
+The following commands are available:
+
+key             binding
+---             -------
+
+C-a             org-beginning-of-line
+C-c             Prefix Command
+C-e             org-end-of-line
+TAB             org-cycle
+C-j             org-return-indent
+C-k             org-kill-line
+RET             scimax/org-return
+C-y             org-yank
+ESC             Prefix Command
+<               ??
+|               org-force-self-insert
+C-#             org-table-rotate-recalc-marks
+C-'             org-cycle-agenda-files
+C-,             org-cycle-agenda-files
+  (that binding is currently shadowed by another mode)
+<C-M-S-left>    org-decrease-number-at-point
+<C-M-S-right>   org-increase-number-at-point
+<C-S-down>      org-shiftcontroldown
+<C-S-left>      org-shiftcontrolleft
+<C-S-return>    org-insert-todo-heading-respect-content
+<C-S-right>     org-shiftcontrolright
+<C-S-up>        org-shiftcontrolup
+<C-return>      org-insert-heading-respect-content
+<C-tab>         org-force-cycle-archived
+<M-S-down>      org-shiftmetadown
+<M-S-left>      org-shiftmetaleft
+<M-S-return>    org-insert-todo-heading
+<M-S-right>     org-shiftmetaright
+<M-S-up>        org-shiftmetaup
+<M-down>        org-metadown
+<M-left>        org-metaleft
+<M-return>      org-meta-return
+<M-right>       org-metaright
+<M-up>          org-metaup
+<S-down>        org-shiftdown
+<S-iso-lefttab>                 org-shifttab
+<S-left>        org-shiftleft
+<S-return>      org-table-copy-down
+<S-right>       org-shiftright
+<S-tab>         org-shifttab
+<S-up>          org-shiftup
+<backtab>       org-shifttab
+<remap>         Prefix Command
+<tab>           org-cycle
+
+C-M-i           pcomplete
+  (that binding is currently shadowed by another mode)
+M-RET           org-insert-heading
+C-M-t           org-transpose-element
+M-^             org-delete-indentation
+M-a             org-backward-sentence
+M-e             org-forward-sentence
+M-h             org-mark-element
+M-{             org-backward-element
+M-}             org-forward-element
+
+C-c C-a         org-attach
+C-c C-b         org-backward-heading-same-level
+  (that binding is currently shadowed by another mode)
+C-c C-c         org-ctrl-c-ctrl-c
+C-c C-d         org-deadline
+C-c C-e         org-export-dispatch
+C-c C-f         org-forward-heading-same-level
+C-c C-j         org-goto
+C-c C-k         org-kill-note-or-show-branches
+C-c C-l         org-insert-link
+C-c RET         org-ctrl-c-ret
+C-c C-o         org-open-at-point
+C-c C-q         org-set-tags-command
+C-c C-r         org-reveal
+C-c C-s         org-schedule
+C-c C-t         org-todo
+C-c C-v         Prefix Command
+C-c C-w         org-refile
+C-c C-x         Prefix Command
+C-c C-y         org-evaluate-time-range
+C-c C-z         org-add-note
+C-c ESC         Prefix Command
+C-c C-^         org-up-element
+C-c C-_         org-down-element
+C-c SPC         org-table-blank-field
+C-c !           org-time-stamp-inactive
+C-c "           Prefix Command
+C-c #           org-update-statistics-cookies
+C-c $           org-archive-subtree
+  (that binding is currently shadowed by another mode)
+C-c %           org-mark-ring-push
+C-c &           org-mark-ring-goto
+  (that binding is currently shadowed by another mode)
+C-c '           org-edit-special
+C-c *           org-ctrl-c-star
+C-c +           org-table-sum
+C-c ,           org-priority
+C-c -           org-ctrl-c-minus
+C-c .           org-time-stamp
+C-c /           org-sparse-tree
+C-c :           org-toggle-fixed-width
+C-c ;           org-toggle-comment
+C-c <           org-date-from-calendar
+C-c =           org-table-eval-formula
+C-c >           org-goto-calendar
+C-c ?           org-table-field-info
+C-c @           org-mark-subtree
+C-c [           org-agenda-file-to-front
+C-c \           org-match-sparse-tree
+C-c ]           org-ref-helm-insert-cite-link
+C-c ^           org-sort
+C-c `           org-table-edit-field
+C-c {           org-table-toggle-formula-debugger
+C-c |           org-table-create-or-convert-from-region
+C-c }           org-table-toggle-coordinate-overlays
+C-c ~           org-table-create-with-table.el
+C-c C-*         org-list-make-subtree
+
+<remap> <backward-paragraph>    org-backward-paragraph
+<remap> <comment-dwim>          org-comment-dwim
+<remap> <delete-backward-char>  org-delete-backward-char
+<remap> <delete-char>           org-delete-char
+<remap> <forward-paragraph>     org-forward-paragraph
+<remap> <open-line>             org-open-line
+<remap> <outline-backward-same-level>
+                                org-backward-heading-same-level
+<remap> <outline-demote>        org-demote-subtree
+<remap> <outline-forward-same-level>
+                                org-forward-heading-same-level
+<remap> <outline-insert-heading>
+                                org-ctrl-c-ret
+<remap> <outline-mark-subtree>  org-mark-subtree
+<remap> <outline-next-visible-heading>
+                                org-next-visible-heading
+<remap> <outline-previous-visible-heading>
+                                org-previous-visible-heading
+<remap> <outline-promote>       org-promote-subtree
+<remap> <outline-show-branches>
+                                org-kill-note-or-show-branches
+<remap> <outline-show-subtree>  org-show-subtree
+<remap> <self-insert-command>   org-self-insert-command
+<remap> <show-children>         org-show-children
+<remap> <transpose-words>       org-transpose-words
+
+C-c C-a         outline-show-all
+  (that binding is currently shadowed by another mode)
+C-c C-b         outline-backward-same-level
+  (that binding is currently shadowed by another mode)
+C-c C-c         outline-hide-entry
+  (that binding is currently shadowed by another mode)
+C-c C-d         outline-hide-subtree
+  (that binding is currently shadowed by another mode)
+C-c C-e         outline-show-entry
+  (that binding is currently shadowed by another mode)
+C-c C-f         outline-forward-same-level
+  (that binding is currently shadowed by another mode)
+C-c TAB         outline-show-children
+C-c C-k         outline-show-branches
+  (that binding is currently shadowed by another mode)
+C-c C-l         outline-hide-leaves
+  (that binding is currently shadowed by another mode)
+C-c RET         outline-insert-heading
+  (that binding is currently shadowed by another mode)
+C-c C-n         outline-next-visible-heading
+C-c C-o         outline-hide-other
+  (that binding is currently shadowed by another mode)
+C-c C-p         outline-previous-visible-heading
+C-c C-q         outline-hide-sublevels
+  (that binding is currently shadowed by another mode)
+C-c C-s         outline-show-subtree
+  (that binding is currently shadowed by another mode)
+C-c C-t         outline-hide-body
+  (that binding is currently shadowed by another mode)
+C-c C-u         outline-up-heading
+C-c C-v         outline-move-subtree-down
+  (that binding is currently shadowed by another mode)
+C-c C-^         outline-move-subtree-up
+  (that binding is currently shadowed by another mode)
+C-c @           outline-mark-subtree
+  (that binding is currently shadowed by another mode)
+C-c C-<         outline-promote
+C-c C->         outline-demote
+
+C-M-i           ispell-complete-word
+  (that binding is currently shadowed by another mode)
+
+C-c " a         orgtbl-ascii-plot
+C-c " g         org-plot/gnuplot
+
+C-c C-M-l       org-insert-all-links
+C-c M-A         org-address-google-geocode-set
+C-c M-L         org-address-google-geocode-set
+C-c M-b         org-previous-block
+C-c M-c         org-coordinates-google-geocode-set
+C-c M-f         org-next-block
+C-c M-l         org-location-google-maps
+C-c M-w         org-copy
+
+C-c C-v C-a     org-babel-sha1-hash
+C-c C-v C-b     org-babel-execute-buffer
+C-c C-v C-c     org-babel-check-src-block
+C-c C-v C-d     org-babel-demarcate-block
+C-c C-v C-e     org-babel-execute-maybe
+C-c C-v C-f     org-babel-tangle-file
+C-c C-v TAB     org-babel-view-src-block-info
+C-c C-v C-j     org-babel-insert-header-arg
+C-c C-v C-l     org-babel-load-in-session
+C-c C-v C-n     org-babel-next-src-block
+C-c C-v C-o     org-babel-open-src-block-result
+C-c C-v C-p     org-babel-previous-src-block
+C-c C-v C-r     org-babel-goto-named-result
+C-c C-v C-s     org-babel-execute-subtree
+C-c C-v C-t     org-babel-tangle
+C-c C-v C-u     org-babel-goto-src-block-head
+C-c C-v C-v     org-babel-expand-src-block
+C-c C-v C-x     org-babel-do-key-sequence-in-edit-buffer
+C-c C-v C-z     org-babel-switch-to-session
+C-c C-v ESC     Prefix Command
+C-c C-v I       org-babel-view-src-block-info
+C-c C-v a       org-babel-sha1-hash
+C-c C-v b       org-babel-execute-buffer
+C-c C-v c       org-babel-check-src-block
+C-c C-v d       org-babel-demarcate-block
+C-c C-v e       org-babel-execute-maybe
+C-c C-v f       org-babel-tangle-file
+C-c C-v g       org-babel-goto-named-src-block
+C-c C-v h       org-babel-describe-bindings
+C-c C-v i       org-babel-lob-ingest
+C-c C-v j       org-babel-insert-header-arg
+C-c C-v k       org-babel-remove-result-one-or-many
+C-c C-v l       org-babel-load-in-session
+C-c C-v n       org-babel-next-src-block
+C-c C-v o       org-babel-open-src-block-result
+C-c C-v p       org-babel-previous-src-block
+C-c C-v r       org-babel-goto-named-result
+C-c C-v s       org-babel-execute-subtree
+C-c C-v t       org-babel-tangle
+C-c C-v u       org-babel-goto-src-block-head
+C-c C-v v       org-babel-expand-src-block
+C-c C-v x       org-babel-do-key-sequence-in-edit-buffer
+C-c C-v z       org-babel-switch-to-session-with-code
+
+C-c C-x C-a     org-archive-subtree-default
+C-c C-x C-b     org-toggle-checkbox
+C-c C-x C-c     org-columns
+C-c C-x C-d     org-clock-display
+C-c C-x C-e     org-clock-modify-effort-estimate
+C-c C-x C-f     org-emphasize
+C-c C-x TAB     org-clock-in
+C-c C-x C-j     org-clock-goto
+C-c C-x C-l     org-toggle-latex-fragment
+C-c C-x RET     Prefix Command
+C-c C-x C-n     org-next-link
+C-c C-x C-o     org-clock-out
+C-c C-x C-p     org-previous-link
+C-c C-x C-q     org-clock-cancel
+C-c C-x C-r     org-clock-report
+C-c C-x C-s     org-archive-subtree
+C-c C-x C-t     org-toggle-time-stamp-overlays
+C-c C-x C-u     org-dblock-update
+C-c C-x C-v     org-toggle-inline-images
+C-c C-x C-w     org-cut-special
+C-c C-x C-x     org-clock-in-last
+C-c C-x C-y     org-paste-special
+C-c C-x C-z     org-resolve-clocks
+C-c C-x ESC     Prefix Command
+C-c C-x !       org-reload
+C-c C-x ,       org-timer-pause-or-continue
+C-c C-x -       org-timer-item
+C-c C-x .       org-timer
+C-c C-x 0       org-timer-start
+C-c C-x ;       org-timer-set-timer
+C-c C-x <       org-agenda-set-restriction-lock
+C-c C-x >       org-agenda-remove-restriction-lock
+C-c C-x A       org-archive-to-archive-sibling
+C-c C-x E       org-inc-effort
+C-c C-x G       org-feed-goto-inbox
+C-c C-x P       org-set-property-and-value
+C-c C-x [       org-reftex-citation
+C-c C-x \       org-toggle-pretty-entities
+C-c C-x _       org-timer-stop
+C-c C-x a       org-toggle-archive-tag
+C-c C-x b       org-tree-to-indirect-buffer
+C-c C-x c       org-clone-subtree-with-time-shift
+C-c C-x d       org-insert-drawer
+C-c C-x e       org-set-effort
+C-c C-x f       org-footnote-action
+C-c C-x g       org-feed-update-all
+C-c C-x i       org-columns-insert-dblock
+C-c C-x o       org-toggle-ordered-property
+C-c C-x p       org-set-property
+C-c C-x q       org-toggle-tags-groups
+C-c C-x t       org-inlinetask-insert-task
+C-c C-x v       org-copy-visible
+
+C-c C-v C-M-h   org-babel-mark-block
+
+C-c C-x C-M-v   org-redisplay-inline-images
+C-c C-x M-w     org-copy-special
+
+C-c C-x RET g   org-mobile-pull
+C-c C-x RET p   org-mobile-push
+
+
+
+In addition to any hooks its parent mode ‘outline-mode’ might have run,
+this mode runs the hook ‘org-mode-hook’, as the final step
+during initialization.
+
+Async-Bytecomp-Package minor mode (no indicator):
+Byte compile asynchronously packages installed with package.el.
+Async compilation of packages can be controlled by
+‘async-bytecomp-allowed-packages’.
+
+(fn &optional ARG)
+
+Auto-Composition minor mode (no indicator):
+Toggle Auto Composition mode.
+With a prefix argument ARG, enable Auto Composition mode if ARG
+is positive, and disable it otherwise.  If called from Lisp,
+enable the mode if ARG is omitted or nil.
+
+When Auto Composition mode is enabled, text characters are
+automatically composed by functions registered in
+‘composition-function-table’.
+
+You can use ‘global-auto-composition-mode’ to turn on
+Auto Composition mode in all buffers (this is the default).
+
+Auto-Compression minor mode (no indicator):
+Toggle Auto Compression mode.
+With a prefix argument ARG, enable Auto Compression mode if ARG
+is positive, and disable it otherwise.  If called from Lisp,
+enable the mode if ARG is omitted or nil.
+
+Auto Compression mode is a global minor mode.  When enabled,
+compressed files are automatically uncompressed for reading, and
+compressed when writing.
+
+Auto-Encryption minor mode (no indicator):
+Toggle automatic file encryption/decryption (Auto Encryption mode).
+With a prefix argument ARG, enable Auto Encryption mode if ARG is
+positive, and disable it otherwise.  If called from Lisp, enable
+the mode if ARG is omitted or nil.
+
+(fn &optional ARG)
+
+Auto-Image-File minor mode (no indicator):
+Toggle visiting of image files as images (Auto Image File mode).
+With a prefix argument ARG, enable Auto Image File mode if ARG is
+positive, and disable it otherwise.  If called from Lisp, enable
+the mode if ARG is omitted or nil.
+
+An image file is one whose name has an extension in
+‘image-file-name-extensions’, or matches a regexp in
+‘image-file-name-regexps’.
+
+Auto-Revert minor mode (indicator ARev):
+Toggle reverting buffer when the file changes (Auto Revert mode).
+With a prefix argument ARG, enable Auto Revert mode if ARG is
+positive, and disable it otherwise.  If called from Lisp, enable
+the mode if ARG is omitted or nil.
+
+Auto Revert mode is a minor mode that affects only the current
+buffer.  When enabled, it reverts the buffer when the file on
+disk changes.
+
+When a buffer is reverted, a message is generated.  This can be
+suppressed by setting ‘auto-revert-verbose’ to nil.
+
+Use ‘global-auto-revert-mode’ to automatically revert all buffers.
+Use ‘auto-revert-tail-mode’ if you know that the file will only grow
+without being changed in the part that is already in the buffer.
+
+(fn &optional ARG)
+
+Blink-Cursor minor mode (no indicator):
+Toggle cursor blinking (Blink Cursor mode).
+With a prefix argument ARG, enable Blink Cursor mode if ARG is
+positive, and disable it otherwise.  If called from Lisp, enable
+the mode if ARG is omitted or nil.
+
+If the value of ‘blink-cursor-blinks’ is positive (10 by default),
+the cursor stops blinking after that number of blinks, if Emacs
+gets no input during that time.
+
+See also ‘blink-cursor-interval’ and ‘blink-cursor-delay’.
+
+This command is effective only on graphical frames.  On text-only
+terminals, cursor blinking is controlled by the terminal.
+
+(fn &optional ARG)
+
+Button-Lock minor mode (indicator b-loc):
+Toggle button-lock-mode, a minor mode for making text clickable.
+
+Button-lock uses ‘font-lock-mode’ to create and maintain its text
+properties.  Therefore this mode can only be used where
+‘font-lock-mode’ is active.
+
+‘button-lock-set-button’ may be called to create a new button.
+‘button-lock-clear-all-buttons’ may be called to clear all button
+definitions in a buffer.
+
+When called interactively with no prefix argument, this command
+toggles the mode. When called interactively, with a prefix
+argument, it enables the mode if the argument is positive and
+otherwise disables it.  When called from Lisp, it enables the
+mode if the argument is omitted or nil, and toggles the mode if
+the argument is ’toggle.
+
+Column-Number minor mode (no indicator):
+Toggle column number display in the mode line (Column Number mode).
+With a prefix argument ARG, enable Column Number mode if ARG is
+positive, and disable it otherwise.
+
+If called from Lisp, enable the mode if ARG is omitted or nil.
+
+(fn &optional ARG)
+
+Company minor mode (no indicator):
+"complete anything"; is an in-buffer completion framework.
+Completion starts automatically, depending on the values
+‘company-idle-delay’ and ‘company-minimum-prefix-length’.
+
+Completion can be controlled with the commands:
+‘company-complete-common’, ‘company-complete-selection’, ‘company-complete’,
+‘company-select-next’, ‘company-select-previous’.  If these commands are
+called before ‘company-idle-delay’, completion will also start.
+
+Completions can be searched with ‘company-search-candidates’ or
+‘company-filter-candidates’.  These can be used while completion is
+inactive, as well.
+
+The completion data is retrieved using ‘company-backends’ and displayed
+using ‘company-frontends’.  If you want to start a specific backend, call
+it interactively or use ‘company-begin-backend’.
+
+By default, the completions list is sorted alphabetically, unless the
+backend chooses otherwise, or ‘company-transformers’ changes it later.
+
+regular keymap (‘company-mode-map’):
+
+key             binding
+---             -------
+
+
+keymap during active completions (‘company-active-map’):
+
+key             binding
+---             -------
+
+C-d             company-show-doc-buffer
+C-g             company-abort
+C-h             company-show-doc-buffer
+TAB             company-complete-common
+RET             company-complete-selection
+C-s             company-search-candidates
+C-w             company-show-location
+ESC             Prefix Command
+<down>          company-select-next-or-abort
+<down-mouse-1>  ignore
+<down-mouse-3>  ignore
+<f1>            company-show-doc-buffer
+<mouse-1>       company-complete-mouse
+<mouse-3>       company-select-mouse
+<remap>         Prefix Command
+<return>        company-complete-selection
+<tab>           company-complete-common
+<up>            company-select-previous-or-abort
+<up-mouse-1>    ignore
+<up-mouse-3>    ignore
+
+<remap> <scroll-down-command>   company-previous-page
+<remap> <scroll-up-command>     company-next-page
+
+C-M-s           company-filter-candidates
+ESC ESC         Prefix Command
+M-0 .. M-9      company-complete-number
+M-n             company-select-next
+M-p             company-select-previous
+
+M-ESC ESC       company-abort
+
+
+
+(fn &optional ARG)
+
+Csv-Field-Index minor mode (no indicator):
+Toggle CSV-Field-Index mode.
+With prefix ARG, turn CSV-Field-Index mode on if and only if ARG is positive.
+Returns the new status of CSV-Field-Index mode (non-nil means on).
+When CSV-Field-Index mode is enabled, the current field index appears in
+the mode line after ‘csv-field-index-delay’ seconds of Emacs idle time.
+
+(fn &optional ARG)
+
+Delete-Selection minor mode (no indicator):
+Toggle Delete Selection mode.
+With a prefix argument ARG, enable Delete Selection mode if ARG
+is positive, and disable it otherwise.  If called from Lisp,
+enable the mode if ARG is omitted or nil.
+
+When Delete Selection mode is enabled, typed text replaces the selection
+if the selection is active.  Otherwise, typed text is just inserted at
+point regardless of any selection.  Also, commands that normally delete
+just one character will delete the entire selection instead.
+
+See ‘delete-selection-helper’ and ‘delete-selection-pre-hook’ for
+information on adapting behavior of commands in Delete Selection mode.
+
+(fn &optional ARG)
+
+Diff-Auto-Refine minor mode (no indicator):
+Toggle automatic diff hunk highlighting (Diff Auto Refine mode).
+With a prefix argument ARG, enable Diff Auto Refine mode if ARG
+is positive, and disable it otherwise.  If called from Lisp,
+enable the mode if ARG is omitted or nil.
+
+Diff Auto Refine mode is a buffer-local minor mode used with
+‘diff-mode’.  When enabled, Emacs automatically highlights
+changes in detail as the user visits hunks.  When transitioning
+from disabled to enabled, it tries to refine the current hunk, as
+well.
+
+(fn &optional ARG)
+
+Diff-Hl minor mode (no indicator):
+Toggle VC diff highlighting.
+
+(fn &optional ARG)
+
+Dired-Async minor mode (no indicator):
+Do dired actions asynchronously.
+
+(fn &optional ARG)
+
+Dired-Omit minor mode (no indicator):
+Toggle omission of uninteresting files in Dired (Dired-Omit mode).
+With a prefix argument ARG, enable Dired-Omit mode if ARG is
+positive, and disable it otherwise.  If called from Lisp, enable
+the mode if ARG is omitted or nil.
+
+Dired-Omit mode is a buffer-local minor mode.  When enabled in a
+Dired buffer, Dired does not list files whose filenames match
+regexp ‘dired-omit-files’, nor files ending with extensions in
+‘dired-omit-extensions’.
+
+To enable omitting in every Dired buffer, you can put this in
+your init file:
+
+  (add-hook 'dired-mode-hook (lambda () (dired-omit-mode)))
+
+See Info node ‘(dired-x) Omitting Variables’ for more information.
+
+(fn &optional ARG)
+
+Electric-Indent minor mode (no indicator):
+Toggle on-the-fly reindentation (Electric Indent mode).
+With a prefix argument ARG, enable Electric Indent mode if ARG is
+positive, and disable it otherwise.  If called from Lisp, enable
+the mode if ARG is omitted or nil.
+
+When enabled, this reindents whenever the hook ‘electric-indent-functions’
+returns non-nil, or if you insert a character from ‘electric-indent-chars’.
+
+This is a global minor mode.  To toggle the mode in a single buffer,
+use ‘electric-indent-local-mode’.
+
+Emojify minor mode (no indicator):
+Emojify mode
+
+(fn &optional ARG)
+
+Erc-Autojoin minor mode (no indicator):
+Toggle ERC autojoin mode.
+With a prefix argument ARG, enable autojoin if ARG is positive,
+and disable it otherwise.  If called from Lisp, enable the mode
+if ARG is omitted or nil.
+Makes ERC autojoin on connects and reconnects.
+
+Erc-Button minor mode (no indicator):
+Toggle ERC button mode.
+With a prefix argument ARG, enable button if ARG is positive,
+and disable it otherwise.  If called from Lisp, enable the mode
+if ARG is omitted or nil.
+This mode buttonizes all messages according to ‘erc-button-alist’.
+
+(fn &optional ARG)
+
+Erc-Fill minor mode (no indicator):
+Toggle ERC fill mode.
+With a prefix argument ARG, enable ERC fill mode if ARG is
+positive, and disable it otherwise.  If called from Lisp, enable
+the mode if ARG is omitted or nil.
+
+ERC fill mode is a global minor mode.  When enabled, messages in
+the channel buffers are filled.
+
+Erc-Irccontrols minor mode (no indicator):
+Toggle ERC irccontrols mode.
+With a prefix argument ARG, enable irccontrols if ARG is positive,
+and disable it otherwise.  If called from Lisp, enable the mode
+if ARG is omitted or nil.
+This mode enables the interpretation of IRC control chars.
+
+Erc-List minor mode (no indicator):
+Toggle ERC list mode.
+With a prefix argument ARG, enable list if ARG is positive,
+and disable it otherwise.  If called from Lisp, enable the mode
+if ARG is omitted or nil.
+List channels nicely in a separate buffer.
+
+(fn &optional ARG)
+
+Erc-Match minor mode (no indicator):
+Toggle ERC match mode.
+With a prefix argument ARG, enable match if ARG is positive,
+and disable it otherwise.  If called from Lisp, enable the mode
+if ARG is omitted or nil.
+This mode checks whether messages match certain patterns.  If so,
+they are hidden or highlighted.  This is controlled via the variables
+‘erc-pals’, ‘erc-fools’, ‘erc-keywords’, ‘erc-dangerous-hosts’, and
+‘erc-current-nick-highlight-type’.  For all these highlighting types,
+you can decide whether the entire message or only the sending nick is
+highlighted.
+
+Erc-Menu minor mode (no indicator):
+Toggle ERC menu mode.
+With a prefix argument ARG, enable menu if ARG is positive,
+and disable it otherwise.  If called from Lisp, enable the mode
+if ARG is omitted or nil.
+Enable a menu in ERC buffers.
+
+Erc-Move-To-Prompt minor mode (no indicator):
+Toggle ERC move-to-prompt mode.
+With a prefix argument ARG, enable move-to-prompt if ARG is positive,
+and disable it otherwise.  If called from Lisp, enable the mode
+if ARG is omitted or nil.
+This mode causes the point to be moved to the prompt when typing text.
+
+Erc-Netsplit minor mode (no indicator):
+Toggle ERC netsplit mode.
+With a prefix argument ARG, enable netsplit if ARG is positive,
+and disable it otherwise.  If called from Lisp, enable the mode
+if ARG is omitted or nil.
+This mode hides quit/join messages if a netsplit occurs.
+
+Erc-Networks minor mode (no indicator):
+Toggle ERC networks mode.
+With a prefix argument ARG, enable networks if ARG is positive,
+and disable it otherwise.  If called from Lisp, enable the mode
+if ARG is omitted or nil.
+Provide data about IRC networks.
+
+Erc-Noncommands minor mode (no indicator):
+Toggle ERC noncommands mode.
+With a prefix argument ARG, enable noncommands if ARG is positive,
+and disable it otherwise.  If called from Lisp, enable the mode
+if ARG is omitted or nil.
+This mode distinguishes non-commands.
+Commands listed in ‘erc-insert-this’ know how to display
+themselves.
+
+Erc-Pcomplete minor mode (no indicator):
+Toggle ERC pcomplete mode.
+With a prefix argument ARG, enable pcomplete if ARG is positive,
+and disable it otherwise.  If called from Lisp, enable the mode
+if ARG is omitted or nil.
+In ERC Completion mode, the TAB key does completion whenever possible.
+
+Erc-Readonly minor mode (no indicator):
+Toggle ERC readonly mode.
+With a prefix argument ARG, enable readonly if ARG is positive,
+and disable it otherwise.  If called from Lisp, enable the mode
+if ARG is omitted or nil.
+This mode causes all inserted text to be read-only.
+
+Erc-Ring minor mode (no indicator):
+Toggle ERC ring mode.
+With a prefix argument ARG, enable ring if ARG is positive,
+and disable it otherwise.  If called from Lisp, enable the mode
+if ARG is omitted or nil.
+Stores input in a ring so that previous commands and messages can
+be recalled using M-p and M-n.
+
+Erc-Stamp minor mode (no indicator):
+Toggle ERC stamp mode.
+With a prefix argument ARG, enable stamp if ARG is positive,
+and disable it otherwise.  If called from Lisp, enable the mode
+if ARG is omitted or nil.
+This mode timestamps messages in the channel buffers.
+
+Erc-Track minor mode (no indicator):
+Toggle ERC track mode.
+With a prefix argument ARG, enable track if ARG is positive,
+and disable it otherwise.  If called from Lisp, enable the mode
+if ARG is omitted or nil.
+This mode tracks ERC channel buffers with activity.
+
+(fn &optional ARG)
+
+Fancy-Battery minor mode (no indicator):
+Display battery status in the mode line.
+
+Like ‘display-battery-mode’, but fancier, and with more
+customization options.
+
+With prefix argument ARG, enable Fancy Battery Mode if ARG is
+positive, and disable it otherwise.  If called from Lisp, enable
+the mode if ARG is omitted or nil.
+
+If ‘battery-status-function’ is nil, the mode is not enabled.
+
+The text in the mode line is controlled by
+‘fancy-battery-mode-line’.  Battery information is obtained from
+‘battery-status-function’, and updated every
+‘battery-update-interval’ seconds.
+
+(fn &optional ARG)
+
+File-Name-Shadow minor mode (no indicator):
+Toggle file-name shadowing in minibuffers (File-Name Shadow mode).
+With a prefix argument ARG, enable File-Name Shadow mode if ARG
+is positive, and disable it otherwise.  If called from Lisp,
+enable the mode if ARG is omitted or nil.
+
+File-Name Shadow mode is a global minor mode.  When enabled, any
+part of a filename being read in the minibuffer that would be
+ignored (because the result is passed through
+‘substitute-in-file-name’) is given the properties in
+‘file-name-shadow-properties’, which can be used to make that
+portion dim, invisible, or otherwise less visually noticeable.
+
+Fixmee minor mode (indicator fixm):
+Turn on ‘fixmee-mode’.
+
+When called interactively with no prefix argument this command
+toggles the mode.  With a prefix argument, it enables the mode
+if the argument is positive and otherwise disables the mode.
+
+When called from Lisp, this command enables the mode if the
+argument is omitted or nil, and toggles the mode if the argument
+is ’toggle.
+
+Flyspell minor mode (indicator Fly):
+Toggle on-the-fly spell checking (Flyspell mode).
+With a prefix argument ARG, enable Flyspell mode if ARG is
+positive, and disable it otherwise.  If called from Lisp, enable
+the mode if ARG is omitted or nil.
+
+Flyspell mode is a buffer-local minor mode.  When enabled, it
+spawns a single Ispell process and checks each word.  The default
+flyspell behavior is to highlight incorrect words.
+
+Bindings:
+M-$: correct words (using Ispell).
+M-x flyspell-auto-correct-word: automatically correct word.
+M-x flyspell-auto-correct-previous-word: automatically correct the last misspelled word.
+M-x flyspell-correct-word (or down-mouse-2): popup correct words.
+
+Hooks:
+This runs ‘flyspell-mode-hook’ after flyspell mode is entered or exit.
+
+Remark:
+‘flyspell-mode’ uses ‘ispell-mode’.  Thus all Ispell options are
+valid.  For instance, a different dictionary can be used by
+invoking ‘ispell-change-dictionary’.
+
+Consider using the ‘ispell-parser’ to check your text.  For instance
+consider adding:
+(add-hook 'tex-mode-hook (function (lambda () (setq ispell-parser 'tex))))
+in your init file.
+
+M-x flyspell-region checks all words inside a region.
+M-x flyspell-buffer checks the whole buffer.
+
+(fn &optional ARG)
+
+Font-Lock minor mode (no indicator):
+Toggle syntax highlighting in this buffer (Font Lock mode).
+With a prefix argument ARG, enable Font Lock mode if ARG is
+positive, and disable it otherwise.  If called from Lisp, enable
+the mode if ARG is omitted or nil.
+
+When Font Lock mode is enabled, text is fontified as you type it:
+
+ - Comments are displayed in ‘font-lock-comment-face’;
+ - Strings are displayed in ‘font-lock-string-face’;
+ - Certain other expressions are displayed in other faces
+   according to the value of the variable ‘font-lock-keywords’.
+
+To customize the faces (colors, fonts, etc.) used by Font Lock for
+fontifying different parts of buffer text, use M-x customize-face.
+
+You can enable Font Lock mode in any major mode automatically by
+turning on in the major mode’s hook.  For example, put in your
+~/.emacs:
+
+ (add-hook 'c-mode-hook 'turn-on-font-lock)
+
+Alternatively, you can use Global Font Lock mode to automagically
+turn on Font Lock mode in buffers whose major mode supports it
+and whose major mode is one of ‘font-lock-global-modes’.  For
+example, put in your ~/.emacs:
+
+ (global-font-lock-mode t)
+
+Where major modes support different levels of fontification, you
+can use the variable ‘font-lock-maximum-decoration’ to specify
+which level you generally prefer.  When you turn Font Lock mode
+on/off the buffer is fontified/defontified, though fontification
+occurs only if the buffer is less than ‘font-lock-maximum-size’.
+
+To add your own highlighting for some major mode, and modify the
+highlighting selected automatically via the variable
+‘font-lock-maximum-decoration’, you can use
+‘font-lock-add-keywords’.
+
+To fontify a buffer, without turning on Font Lock mode and
+regardless of buffer size, you can use M-x font-lock-fontify-buffer.
+
+To fontify a block (the function or paragraph containing point,
+or a number of lines around point), perhaps because modification
+on the current line caused syntactic change on other lines, you
+can use M-o M-o.
+
+You can set your own default settings for some mode, by setting a
+buffer local value for ‘font-lock-defaults’, via its mode hook.
+
+The above is the default behavior of ‘font-lock-mode’; you may
+specify your own function which is called when ‘font-lock-mode’
+is toggled via ‘font-lock-function’.
+
+Global-Company minor mode (no indicator):
+Toggle Company mode in all buffers.
+With prefix ARG, enable Global Company mode if ARG is positive;
+otherwise, disable it.  If called from Lisp, enable the mode if
+ARG is omitted or nil.
+
+Company mode is enabled in all buffers where
+‘company-mode-on’ would do it.
+See ‘company-mode’ for more information on Company mode.
+
+(fn &optional ARG)
+
+Global-Diff-Hl minor mode (no indicator):
+Toggle Diff-Hl mode in all buffers.
+With prefix ARG, enable Global Diff-Hl mode if ARG is positive;
+otherwise, disable it.  If called from Lisp, enable the mode if
+ARG is omitted or nil.
+
+Diff-Hl mode is enabled in all buffers where
+‘turn-on-diff-hl-mode’ would do it.
+See ‘diff-hl-mode’ for more information on Diff-Hl mode.
+
+(fn &optional ARG)
+
+Global-Eldoc minor mode (no indicator):
+Toggle Global Eldoc mode on or off.
+With a prefix argument ARG, enable Global Eldoc mode if ARG is
+positive, and disable it otherwise.  If called from Lisp, enable
+the mode if ARG is omitted or nil, and toggle it if ARG is ‘toggle’.
+
+If Global Eldoc mode is on, ‘eldoc-mode’ will be enabled in all
+buffers where it’s applicable.  These are buffers that have modes
+that have enabled eldoc support.  See ‘eldoc-documentation-function’.
+
+(fn &optional ARG)
+
+Global-Emojify minor mode (no indicator):
+Toggle Emojify mode in all buffers.
+With prefix ARG, enable Global Emojify mode if ARG is positive;
+otherwise, disable it.  If called from Lisp, enable the mode if
+ARG is omitted or nil.
+
+Emojify mode is enabled in all buffers where
+‘emojify-mode’ would do it.
+See ‘emojify-mode’ for more information on Emojify mode.
+
+(fn &optional ARG)
+
+Global-Fixmee minor mode (no indicator):
+Toggle Fixmee mode in all buffers.
+With prefix ARG, enable Global Fixmee mode if ARG is positive;
+otherwise, disable it.  If called from Lisp, enable the mode if
+ARG is omitted or nil.
+
+Fixmee mode is enabled in all buffers where
+‘fixmee-maybe-turn-on’ would do it.
+See ‘fixmee-mode’ for more information on Fixmee mode.
+
+Global-Font-Lock minor mode (no indicator):
+Toggle Font-Lock mode in all buffers.
+With prefix ARG, enable Global Font-Lock mode if ARG is positive;
+otherwise, disable it.  If called from Lisp, enable the mode if
+ARG is omitted or nil.
+
+Font-Lock mode is enabled in all buffers where
+‘turn-on-font-lock-if-desired’ would do it.
+See ‘font-lock-mode’ for more information on Font-Lock mode.
+
+Global-Git-Commit minor mode (no indicator):
+Edit Git commit messages.
+This global mode arranges for ‘git-commit-setup’ to be called
+when a Git commit message file is opened.  That usually happens
+when Git uses the Emacsclient as $GIT_EDITOR to have the user
+provide such a commit message.
+
+(fn &optional ARG)
+
+Global-Hl-Line minor mode (no indicator):
+Toggle line highlighting in all buffers (Global Hl-Line mode).
+With a prefix argument ARG, enable Global Hl-Line mode if ARG is
+positive, and disable it otherwise.  If called from Lisp, enable
+the mode if ARG is omitted or nil.
+
+If ‘global-hl-line-sticky-flag’ is non-nil, Global Hl-Line mode
+highlights the line about the current buffer’s point in all
+windows.
+
+Global-Hl-Line mode uses the functions ‘global-hl-line-unhighlight’ and
+‘global-hl-line-highlight’ on ‘pre-command-hook’ and ‘post-command-hook’.
+
+(fn &optional ARG)
+
+Global-Nlinum minor mode (no indicator):
+Toggle Nlinum mode in all buffers.
+With prefix ARG, enable Global Nlinum mode if ARG is positive;
+otherwise, disable it.  If called from Lisp, enable the mode if
+ARG is omitted or nil.
+
+Nlinum mode is enabled in all buffers where
+‘(lambda nil (unless (minibufferp) (nlinum-mode)))’ would do it.
+See ‘nlinum-mode’ for more information on Nlinum mode.
+
+(fn &optional ARG)
+
+Global-Undo-Tree minor mode (no indicator):
+Toggle Undo-Tree mode in all buffers.
+With prefix ARG, enable Global Undo-Tree mode if ARG is positive;
+otherwise, disable it.  If called from Lisp, enable the mode if
+ARG is omitted or nil.
+
+Undo-Tree mode is enabled in all buffers where
+‘turn-on-undo-tree-mode’ would do it.
+See ‘undo-tree-mode’ for more information on Undo-Tree mode.
+
+(fn &optional ARG)
+
+Gradle minor mode (indicator Gradle):
+Emacs minor mode for integrating Gradle into compile.
+Run gradle tasks from any buffer, scanning up to nearest gradle
+directory to run tasks.
+
+Icomplete minor mode (no indicator):
+Toggle incremental minibuffer completion (Icomplete mode).
+With a prefix argument ARG, enable Icomplete mode if ARG is
+positive, and disable it otherwise.  If called from Lisp, enable
+the mode if ARG is omitted or nil.
+
+When this global minor mode is enabled, typing in the minibuffer
+continuously displays a list of possible completions that match
+the string you have typed.  See ‘icomplete-completions’ for a
+description of how prospective completions are displayed.
+
+For more information, see Info node ‘(emacs)Icomplete’.
+For options you can set, ‘M-x customize-group icomplete’.
+
+You can use the following key bindings to navigate and select
+completions:
+
+key             binding
+---             -------
+
+C-j             icomplete-force-complete-and-exit
+ESC             Prefix Command
+C-,             icomplete-backward-completions
+C-.             icomplete-forward-completions
+
+C-M-i           minibuffer-force-complete
+
+
+
+Image-Diredx-Async minor mode (no indicator):
+Extension for ‘image-dired’ asynchrounous image thumbnail.
+
+Indent-Guide minor mode (indicator ing):
+show vertical lines to guide indentation
+
+Indent-Guide-Global minor mode (no indicator):
+Toggle Indent-Guide mode in all buffers.
+With prefix ARG, enable Indent-Guide-Global mode if ARG is positive;
+otherwise, disable it.  If called from Lisp, enable the mode if
+ARG is omitted or nil.
+
+Indent-Guide mode is enabled in all buffers where
+‘(lambda nil (unless (cl-some (quote derived-mode-p) indent-guide-inhibit-modes) (indent-guide-mode 1)))’ would do it.
+See ‘indent-guide-mode’ for more information on Indent-Guide mode.
+
+Info-Breadcrumbs-In-Mode-Line minor mode (no indicator):
+Toggle the use of breadcrumbs in Info mode line.
+With arg, show breadcrumbs iff arg is positive.
+Change the default behavior by customizing option
+‘Info-breadcrumbs-in-mode-line-mode’.
+
+Ivy minor mode (indicator ivy):
+Toggle Ivy mode on or off.
+Turn Ivy mode on if ARG is positive, off otherwise.
+Turning on Ivy mode sets ‘completing-read-function’ to
+‘ivy-completing-read’.
+
+Global bindings:
+key             binding
+---             -------
+
+<remap>         Prefix Command
+
+<remap> <switch-to-buffer>      ivy-switch-buffer
+<remap> <switch-to-buffer-other-window>
+                                ivy-switch-buffer-other-window
+
+
+
+Minibuffer bindings:
+key             binding
+---             -------
+
+C-c             Prefix Command
+C-g             minibuffer-keyboard-quit
+TAB             ivy-partial-or-done
+C-j             ivy-alt-done
+RET             ivy-done
+C-o             hydra-ivy/body
+C-r             ivy-reverse-i-search
+C-s             ivy-next-line-or-history
+C-v             ivy-scroll-up-command
+ESC             Prefix Command
+SPC             self-insert-command
+S-SPC           ivy-restrict-to-matches
+C-'             ivy-avy
+<remap>         Prefix Command
+
+C-c C-a         ivy-toggle-ignore
+C-c C-o         ivy-occur
+C-c C-s         ivy-rotate-sort
+
+<remap> <backward-delete-char-untabify>
+                                ivy-backward-delete-char
+<remap> <backward-kill-word>    ivy-backward-kill-word
+<remap> <beginning-of-buffer>   ivy-beginning-of-buffer
+<remap> <delete-backward-char>  ivy-backward-delete-char
+<remap> <delete-char>           ivy-delete-char
+<remap> <describe-mode>         ivy-help
+<remap> <end-of-buffer>         ivy-end-of-buffer
+<remap> <forward-char>          ivy-forward-char
+<remap> <kill-line>             ivy-kill-line
+<remap> <kill-ring-save>        ivy-kill-ring-save
+<remap> <kill-word>             ivy-kill-word
+<remap> <next-line>             ivy-next-line
+<remap> <previous-line>         ivy-previous-line
+<remap> <scroll-down-command>   ivy-scroll-down-command
+<remap> <scroll-up-command>     ivy-scroll-up-command
+
+C-M-a           ivy-read-action
+C-M-j           ivy-immediate-done
+M-RET           ivy-call
+C-M-n           ivy-next-line-and-call
+C-M-o           ivy-dispatching-call
+C-M-p           ivy-previous-line-and-call
+M-i             ivy-insert-current
+M-j             ivy-yank-word
+M-n             ivy-next-history-element
+M-o             ivy-dispatching-done
+M-p             ivy-previous-history-element
+M-r             ivy-toggle-regexp-quote
+M-v             ivy-scroll-down-command
+
+
+
+(fn &optional ARG)
+
+Line-Number minor mode (no indicator):
+Toggle line number display in the mode line (Line Number mode).
+With a prefix argument ARG, enable Line Number mode if ARG is
+positive, and disable it otherwise.  If called from Lisp, enable
+the mode if ARG is omitted or nil.
+
+Line numbers do not appear for very large buffers and buffers
+with very long lines; see variables ‘line-number-display-limit’
+and ‘line-number-display-limit-width’.
+
+(fn &optional ARG)
+
+Magit-Auto-Revert minor mode (no indicator):
+Toggle Magit Auto Revert mode.
+With a prefix argument ARG, enable Magit Auto Revert mode if ARG
+is positive, and disable it otherwise.  If called from Lisp,
+enable the mode if ARG is omitted or nil.
+
+Magit Auto Revert mode is a global minor mode that reverts
+buffers associated with a file that is located inside a Git
+repository when the file changes on disk.  Use ‘auto-revert-mode’
+to revert a particular buffer.  Or use ‘global-auto-revert-mode’
+to revert all file-visiting buffers, not just those that visit
+a file located inside a Git repository.
+
+This global mode works by turning on the buffer-local mode
+‘auto-revert-mode’ at the time a buffer is first created.  The
+local mode is turned on if the visited file is being tracked in
+a Git repository at the time when the buffer is created.
+
+If ‘magit-auto-revert-tracked-only’ is non-nil (the default),
+then only tracked files are reverted.  But if you stage a
+previously untracked file using ‘magit-stage’, then this mode
+notices that.
+
+Unlike ‘global-auto-revert-mode’, this mode never reverts any
+buffers that are not visiting files.
+
+The behavior of this mode can be customized using the options
+in the ‘autorevert’ and ‘magit-autorevert’ groups.
+
+This function calls the hook ‘magit-auto-revert-mode-hook’.
+
+Mouse-Wheel minor mode (no indicator):
+Toggle mouse wheel support (Mouse Wheel mode).
+With a prefix argument ARG, enable Mouse Wheel mode if ARG is
+positive, and disable it otherwise.  If called from Lisp, enable
+the mode if ARG is omitted or nil.
+
+Nlinum minor mode (no indicator):
+Toggle display of line numbers in the left margin (Linum mode).
+With a prefix argument ARG, enable Linum mode if ARG is positive,
+and disable it otherwise.  If called from Lisp, enable the mode
+if ARG is omitted or nil.
+
+Linum mode is a buffer-local minor mode.
+
+(fn &optional ARG)
+
+Org-Beamer minor mode (indicator Bm):
+Support for editing Beamer oriented Org mode files.
+
+(fn &optional ARG)
+
+Org-Bullets minor mode (no indicator):
+UTF8 Bullets for org-mode
+
+Org-Indent minor mode (indicator Ind):
+When active, indent text according to outline structure.
+
+Internally this works by adding ‘line-prefix’ and ‘wrap-prefix’
+properties, after each buffer modification, on the modified zone.
+
+The process is synchronous.  Though, initial indentation of
+buffer, which can take a few seconds on large buffers, is done
+during idle time.
+
+(fn &optional ARG)
+
+Override-Global minor mode (no indicator):
+A minor mode so that keymap settings override other modes.
+
+Pdf-Occur-Global minor mode (no indicator):
+Enable integration of Pdf Occur with other modes.
+
+This global minor mode enables (or disables)
+‘pdf-occur-ibuffer-minor-mode’ and ‘pdf-occur-dired-minor-mode’
+in all current and future ibuffer/dired buffer.
+
+(fn &optional ARG)
+
+Prettify-Symbols minor mode (no indicator):
+Toggle Prettify Symbols mode.
+With a prefix argument ARG, enable Prettify Symbols mode if ARG is
+positive, and disable it otherwise.  If called from Lisp, enable
+the mode if ARG is omitted or nil.
+
+When Prettify Symbols mode and font-locking are enabled, symbols are
+prettified (displayed as composed characters) according to the rules
+in ‘prettify-symbols-alist’ (which see), which are locally defined
+by major modes supporting prettifying.  To add further customizations
+for a given major mode, you can modify ‘prettify-symbols-alist’ thus:
+
+  (add-hook 'emacs-lisp-mode-hook
+            (lambda ()
+              (push '("<=" . ?≤) prettify-symbols-alist)))
+
+You can enable this mode locally in desired buffers, or use
+‘global-prettify-symbols-mode’ to enable it for all modes that
+support it.
+
+(fn &optional ARG)
+
+Projectile minor mode (indicator P):
+Minor mode to assist project management and navigation.
+
+When called interactively, toggle ‘projectile-mode’.  With prefix
+ARG, enable ‘projectile-mode’ if ARG is positive, otherwise disable
+it.
+
+When called from Lisp, enable ‘projectile-mode’ if ARG is omitted,
+nil or positive.  If ARG is ‘toggle’, toggle ‘projectile-mode’.
+Otherwise behave as if called interactively.
+
+key             binding
+---             -------
+
+C-c             Prefix Command
+
+C-c p           projectile-command-map
+
+C-c p ESC       projectile-project-buffers-other-buffer
+C-c p !         projectile-run-shell-command-in-root
+C-c p &         projectile-run-async-shell-command-in-root
+C-c p 4         Prefix Command
+C-c p D         projectile-dired
+C-c p E         projectile-edit-dir-locals
+C-c p F         projectile-find-file-in-known-projects
+C-c p I         projectile-ibuffer
+C-c p P         projectile-test-project
+C-c p R         projectile-regenerate-tags
+C-c p S         projectile-save-project-buffers
+C-c p T         projectile-find-test-file
+C-c p V         projectile-browse-dirty-projects
+C-c p a         projectile-find-other-file
+C-c p b         projectile-switch-to-buffer
+C-c p c         projectile-compile-project
+C-c p d         projectile-find-dir
+C-c p e         projectile-recentf
+C-c p f         projectile-find-file
+C-c p g         projectile-find-file-dwim
+C-c p h         helm-projectile
+C-c p i         projectile-invalidate-cache
+C-c p j         projectile-find-tag
+C-c p k         projectile-kill-buffers
+C-c p l         projectile-find-file-in-directory
+C-c p m         projectile-commander
+C-c p o         projectile-multi-occur
+C-c p p         projectile-switch-project
+C-c p q         projectile-switch-open-project
+C-c p r         projectile-replace
+C-c p s         Prefix Command
+C-c p t         projectile-toggle-between-implementation-and-test
+C-c p u         projectile-run-project
+C-c p v         projectile-vc
+C-c p x         Prefix Command
+C-c p z         projectile-cache-current-file
+
+C-c p x e       projectile-run-eshell
+C-c p x s       projectile-run-shell
+C-c p x t       projectile-run-term
+
+C-c p s g       projectile-grep
+C-c p s s       projectile-ag
+
+C-c p 4 C-o     projectile-display-buffer
+C-c p 4 a       projectile-find-other-file-other-window
+C-c p 4 b       projectile-switch-to-buffer-other-window
+C-c p 4 d       projectile-find-dir-other-window
+C-c p 4 f       projectile-find-file-other-window
+C-c p 4 g       projectile-find-file-dwim-other-window
+C-c p 4 t       projectile-find-implementation-or-test-other-window
+
+
+
+(fn &optional ARG)
+
+Pyvenv minor mode (no indicator):
+Global minor mode for pyvenv.
+
+Will show the current virtualenv in the mode line, and respect a
+‘pyvenv-workon’ setting in files.
+
+(fn &optional ARG)
+
+Recentf minor mode (no indicator):
+Toggle "Open Recent" menu (Recentf mode).
+With a prefix argument ARG, enable Recentf mode if ARG is
+positive, and disable it otherwise.  If called from Lisp, enable
+Recentf mode if ARG is omitted or nil.
+
+When Recentf mode is enabled, a "Open Recent" submenu is
+displayed in the "File" menu, containing a list of files that
+were operated on recently.
+
+Shell-Dirtrack minor mode (no indicator):
+Toggle directory tracking in this shell buffer (Shell Dirtrack mode).
+With a prefix argument ARG, enable Shell Dirtrack mode if ARG is
+positive, and disable it otherwise.  If called from Lisp, enable
+the mode if ARG is omitted or nil.
+
+The ‘dirtrack’ package provides an alternative implementation of
+this feature; see the function ‘dirtrack-mode’.
+
+(fn &optional ARG)
+
+Show-Smartparens minor mode (no indicator):
+Toggle visualization of matching pairs.  When enabled, any
+matching pair is highlighted after ‘sp-show-pair-delay’ seconds
+of Emacs idle time if the point is immediately in front or after
+a pair.  This mode works similarly to ‘show-paren-mode’, but
+support custom pairs.
+
+(fn &optional ARG)
+
+Show-Smartparens-Global minor mode (no indicator):
+Toggle Show-Smartparens mode in all buffers.
+With prefix ARG, enable Show-Smartparens-Global mode if ARG is positive;
+otherwise, disable it.  If called from Lisp, enable the mode if
+ARG is omitted or nil.
+
+Show-Smartparens mode is enabled in all buffers where
+‘turn-on-show-smartparens-mode’ would do it.
+See ‘show-smartparens-mode’ for more information on Show-Smartparens mode.
+
+(fn &optional ARG)
+
+Size-Indication minor mode (no indicator):
+Toggle buffer size display in the mode line (Size Indication mode).
+With a prefix argument ARG, enable Size Indication mode if ARG is
+positive, and disable it otherwise.
+
+If called from Lisp, enable the mode if ARG is omitted or nil.
+
+(fn &optional ARG)
+
+Smartparens minor mode (indicator SP):
+Toggle smartparens mode.
+
+You can enable pre-set bindings by customizing
+‘sp-base-key-bindings’ variable.  The current content of
+‘smartparens-mode-map’ is:
+
+ key             binding
+---             -------
+
+
+
+(fn &optional ARG)
+
+Smartparens-Global minor mode (no indicator):
+Toggle Smartparens mode in all buffers.
+With prefix ARG, enable Smartparens-Global mode if ARG is positive;
+otherwise, disable it.  If called from Lisp, enable the mode if
+ARG is omitted or nil.
+
+Smartparens mode is enabled in all buffers where
+‘turn-on-smartparens-mode’ would do it.
+See ‘smartparens-mode’ for more information on Smartparens mode.
+
+(fn &optional ARG)
+
+Spaceline-Helm minor mode (no indicator):
+Customize the mode-line in helm.
+
+Spaceline-Info minor mode (no indicator):
+Customize the mode-line in info.
+This minor mode requires info+.
+
+Tex-Pdf minor mode (no indicator):
+Minor mode for using PDFTeX.
+
+If enabled, PDFTeX will be used as an executable by default.
+You can customize an initial value, and you can use the
+function ‘TeX-global-PDF-mode’ for toggling this value.
+
+Tex-Source-Correlate minor mode (no indicator):
+Minor mode for forward and inverse search.
+
+If enabled, the viewer can be advised to show the output page
+corresponding to the point in the source and vice versa.
+
+The method to be used can be controlled with the variable
+‘TeX-source-correlate-method’.  Currently source specials or
+SyncTeX are recognized.
+
+Tooltip minor mode (no indicator):
+Toggle Tooltip mode.
+With a prefix argument ARG, enable Tooltip mode if ARG is positive,
+and disable it otherwise.  If called from Lisp, enable the mode
+if ARG is omitted or nil.
+
+When this global minor mode is enabled, Emacs displays help
+text (e.g. for buttons and menu items that you put the mouse on)
+in a pop-up window.
+
+When Tooltip mode is disabled, Emacs displays help text in the
+echo area, instead of making a pop-up window.
+
+Transient-Mark minor mode (no indicator):
+Toggle Transient Mark mode.
+With a prefix argument ARG, enable Transient Mark mode if ARG is
+positive, and disable it otherwise.  If called from Lisp, enable
+Transient Mark mode if ARG is omitted or nil.
+
+Transient Mark mode is a global minor mode.  When enabled, the
+region is highlighted with the ‘region’ face whenever the mark
+is active.  The mark is "deactivated" by changing the buffer,
+and after certain other operations that set the mark but whose
+main purpose is something else--for example, incremental search,
+<, and >.
+
+You can also deactivate the mark by typing C-g or
+M-ESC ESC.
+
+Many commands change their behavior when Transient Mark mode is
+in effect and the mark is active, by acting on the region instead
+of their usual default part of the buffer’s text.  Examples of
+such commands include M-;, M-x flush-lines, M-x keep-lines,
+M-%, C-M-%, M-x ispell, and C-_.
+To see the documentation of commands which are sensitive to the
+Transient Mark mode, invoke C-h d and type "transient"
+or "mark.*active" at the prompt.
+
+(fn &optional ARG)
+
+Undo-Tree minor mode (indicator Undo-Tree):
+Toggle undo-tree mode.
+With no argument, this command toggles the mode.
+A positive prefix argument turns the mode on.
+A negative prefix argument turns it off.
+
+Undo-tree-mode replaces Emacs’ standard undo feature with a more
+powerful yet easier to use version, that treats the undo history
+as what it is: a tree.
+
+The following keys are available in ‘undo-tree-mode’:
+
+  key             binding
+---             -------
+
+C-x             Prefix Command
+ESC             Prefix Command
+C-_             undo-tree-undo
+C-/             undo-tree-undo
+C-?             undo-tree-redo
+<remap>         Prefix Command
+
+C-x r           Prefix Command
+C-x u           undo-tree-visualize
+
+M-_             undo-tree-redo
+
+<remap> <redo>  undo-tree-redo
+<remap> <undo>  undo-tree-undo
+<remap> <undo-only>             undo-tree-undo
+
+C-x r U         undo-tree-restore-state-from-register
+C-x r u         undo-tree-save-state-to-register
+
+
+
+Within the undo-tree visualizer, the following keys are available:
+
+  key             binding
+---             -------
+
+C-b             undo-tree-visualize-switch-branch-left
+C-f             undo-tree-visualize-switch-branch-right
+C-n             undo-tree-visualize-redo
+C-p             undo-tree-visualize-undo
+C-q             undo-tree-visualizer-abort
+ESC             Prefix Command
+,               undo-tree-visualizer-scroll-left
+.               undo-tree-visualizer-scroll-right
+<               undo-tree-visualizer-scroll-left
+>               undo-tree-visualizer-scroll-right
+b               undo-tree-visualize-switch-branch-left
+d               undo-tree-visualizer-toggle-diff
+f               undo-tree-visualize-switch-branch-right
+n               undo-tree-visualize-redo
+p               undo-tree-visualize-undo
+q               undo-tree-visualizer-quit
+s               undo-tree-visualizer-selection-mode
+t               undo-tree-visualizer-toggle-timestamps
+<C-down>        undo-tree-visualize-redo-to-x
+<C-up>          undo-tree-visualize-undo-to-x
+<down>          undo-tree-visualize-redo
+<left>          undo-tree-visualize-switch-branch-left
+<mouse-1>       undo-tree-visualizer-mouse-set
+<next>          undo-tree-visualizer-scroll-up
+<prior>         undo-tree-visualizer-scroll-down
+<remap>         Prefix Command
+<right>         undo-tree-visualize-switch-branch-right
+<up>            undo-tree-visualize-undo
+
+M-{             undo-tree-visualize-undo-to-x
+M-}             undo-tree-visualize-redo-to-x
+
+<remap> <backward-char>         undo-tree-visualize-switch-branch-left
+<remap> <backward-paragraph>    undo-tree-visualize-undo-to-x
+<remap> <forward-char>          undo-tree-visualize-switch-branch-right
+<remap> <forward-paragraph>     undo-tree-visualize-redo-to-x
+<remap> <next-line>             undo-tree-visualize-redo
+<remap> <previous-line>         undo-tree-visualize-undo
+
+
+
+(fn &optional ARG)
+
+Volatile-Highlights minor mode (indicator VHl):
+Minor mode for visual feedback on some operations.
+
+Which-Function minor mode (no indicator):
+Toggle mode line display of current function (Which Function mode).
+With a prefix argument ARG, enable Which Function mode if ARG is
+positive, and disable it otherwise.  If called from Lisp, enable
+the mode if ARG is omitted or nil.
+
+Which Function mode is a global minor mode.  When enabled, the
+current function name is continuously displayed in the mode line,
+in certain major modes.
+
+Yas minor mode (no indicator):
+Toggle YASnippet mode.
+
+When YASnippet mode is enabled, ‘yas-expand’, normally bound to
+the TAB key, expands snippets of code depending on the major
+mode.
+
+With no argument, this command toggles the mode.
+positive prefix argument turns on the mode.
+Negative prefix argument turns off the mode.
+
+Key bindings:
+key             binding
+---             -------
+
+C-c             Prefix Command
+
+C-c &           Prefix Command
+
+C-c & C-n       yas-new-snippet
+C-c & C-s       yas-insert-snippet
+C-c & C-v       yas-visit-snippet-file
+
+
+
+Yas-Global minor mode (no indicator):
+Toggle Yas minor mode in all buffers.
+With prefix ARG, enable Yas-Global mode if ARG is positive;
+otherwise, disable it.  If called from Lisp, enable the mode if
+ARG is omitted or nil.
+
+Yas minor mode is enabled in all buffers where
+‘yas-minor-mode-on’ would do it.
+See ‘yas-minor-mode’ for more information on Yas minor mode.
+
+[back]
