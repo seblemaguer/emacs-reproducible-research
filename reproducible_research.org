@@ -47,6 +47,7 @@
 #+LaTeX_HEADER: \let\@mycite\@cite
 #+LaTeX_HEADER: \def\@cite#1#2{{\hypersetup{linkcolor=green!60!black}[{#1\if@tempswa , #2\fi}]}}
 #+LaTeX_HEADER: \makeatother
+
 # ##############################################################################################################################
 
 # ##############################################################################################################################
@@ -76,7 +77,7 @@
 *Some pre-requisite*
 - Linux ubuntu 16.04 / bash
 #+end_quote
-* Emacs basics [40%]
+* Emacs basics [60%]
 ** DONE General informations
 CLOSED: [2017-05-16 Tue 21:24]
 - Global informations
@@ -87,12 +88,23 @@ CLOSED: [2017-05-16 Tue 21:24]
 - Global key concepts
   - 3 modifier keys = CTRL, MAJ, META
   - META = alt on PC,  command on MAC
-- Commands [FIXME: minor explanation]
+- Commands (FIXME:  minor explanation)
 ** TODO Graphic overview
-[FIXME: adding a screenshot]
+(FIXME:  adding a screenshot)
 ** TODO Graphic overview with a legend
-[FIXME: adding a screenshot]
-** TODO Major mode / minor mode
+(FIXME:  adding a screenshot)
+** DONE Major mode / minor mode
+CLOSED: [2017-05-28 Sun 09:20]
+- Emacs adaptation = modes
+- 2 kind of modes: major and minor
+- 1 buffer = 1 major mode + N minor modes
+  - major mode = editing behavior (syntax coloring, indentation, ...)
+  - minor mode = specific adaptations (matching parenthesis, spell/syntax checking, ...)
+- Help key = C-h m
+  - List all the mode enabled in the buffer + some documentation
+  - Example
+
+# #+include: "~/work/courses/current/teaching/reproducible-research/assets/example_mode_help" example
 ** DONE Emacs configuration
 CLOSED: [2017-05-17 Wed 13:31]
 - Global
@@ -108,8 +120,8 @@ CLOSED: [2017-05-17 Wed 13:31]
 CLOSED: [2017-05-17 Wed 12:50]
 - Pre-configuration
   - Package installation (ubuntu)
-#+begin_src emacs-lisp
-sudo apt-get install [FIXME: package]
+#+begin_src sh
+sudo apt-get install (FIXME:  package)
 #+end_src
   - Copy the following the following profile into ~/.profile : https://raw.githubusercontent.com/seblemaguer/emacs-reproducible-research/master/assets/configuration/profile
   - For future use Adapt your bashrc by adding
@@ -127,7 +139,7 @@ CLOSED: [2017-05-17 Wed 12:51]
   - Compilation/installation
     1. Retrieve the installation shell script: [[https://raw.githubusercontent.com/seblemaguer/emacs-reproducible-research/master/assets/scripts/emacs_install.sh]]
     2. Execute the shell script with the following syntax
-#+begin_src bash
+#+begin_src sh
 bash emacs_install.sh -j 2 $HOME/environment/local
 #+end_src
 - Running
@@ -136,8 +148,8 @@ emacs
 #+end_src
 ** TODO The most important keys in the world ! (or maybe not but still)
 - M-x = starting a command
-- C-h, C-m, C-k, C-f = documentation shortcut
-- C-x f, C-x s, C-x w = open file/save buffer
+- C-h m (mode), C-h k (keys), C-h f (function) = documentation shortcut
+- C-x f (open), C-x s (save), C-x w (save as) = open file/save buffer
 - refcard = https://www.gnu.org/software/emacs/refcards/pdf/refcard.pdf
 ** DONE Having fun for 5min :D
 CLOSED: [2017-05-16 Tue 22:11]
@@ -154,7 +166,6 @@ CLOSED: [2017-05-16 Tue 22:11]
 * Hands-on configured emacs [40%]
 ** DONE Package management
 CLOSED: [2017-05-17 Wed 13:06]
-- Emacs has a package management system
 - *use-package* = helper to install and *configure* a package
   - URL = https://github.com/jwiegley/use-package/
   - A baseline example
@@ -192,11 +203,11 @@ CLOSED: [2017-05-17 Wed 13:06]
     )
 #+end_src
 - To list available packages use the command: =list-packages=
-** TODO Install a minimal configuration
+** TODO Install a baseline configuration
 - Retrieve the following file: https://raw.githubusercontent.com/seblemaguer/emacs-reproducible-research/master/assets/configuration/init.el
 - Copy it into =~/.emacs.d/init.el=
 - Open emacs, it should look like that:
-[FIXME: screenshot]
+(FIXME:  screenshot)
 ** TODO Some main functionalities
 - Buffer management
   - Using C-x C-b to open the ibuffer list
@@ -216,7 +227,7 @@ CLOSED: [2017-05-16 Tue 22:11]
 ** TODO Bonus: configure a server/client architecture
 - Why? because it's faster :)
 - How to:
-  1. Retrieve the following shell script [FIXME: url]
+  1. Retrieve the following shell script (FIXME:  url)
   2. Execute the shell script with the following syntax
 - Try to run the emacs command
 * Project/scm [40%]
@@ -236,7 +247,7 @@ CLOSED: [2017-05-18 Thu 13:39]
   - C-c p f = open file *in the project*
   - C-c p h = open helm to manipulate projectile
 ** TODO Projectile - example
-Adding video
+(FIXME:  Adding video)
 ** DONE Git
 CLOSED: [2017-05-18 Thu 13:50]
 - Main tools is *magit*
@@ -251,10 +262,10 @@ CLOSED: [2017-05-18 Thu 13:50]
   - Repository = https://github.com/pidu/git-timemachine
   - Command = =git-timemachine=
 ** TODO Magit - example
-Adding video
+(FIXME:  Adding video)
 ** TODO Git-timemachine - example
-Adding video
-* Org-mode - Introduction [25%]
+(FIXME:  Adding video)
+* Org-mode - Introduction [33%]
 ** DONE General informations
 CLOSED: [2017-05-19 Fri 16:10]
 #+begin_quote
@@ -266,9 +277,22 @@ system.
   - spreadsheet
   - bibtex/reference
   - ...
-** TODO Task management - gtd principle
+** DONE Task management - gtd principle
+CLOSED: [2017-05-28 Sun 10:51]
+#+begin_quote
+#+CAPTION: (extracted from https://en.wikipedia.org/wiki/Getting_Things_Done)
+#+NAME:   fig:gtd
+#+ATTR_HTML: :width 75%
+[[./assets/images/GTDcanonical.png]]
+#+end_quote
+** TODO Task management - An example
+** TODO Task management - How to change
 ** TODO Agenda/dash/...
 ** TODO Capturing
+- Principle =
+- Example:
+(FIXME:  adding videos)
+-
 * Org-mode - writing documents [28%]
 ** DONE The header
 CLOSED: [2017-05-18 Thu 13:58]
@@ -336,7 +360,14 @@ CLOSED: [2017-05-18 Thu 14:10]
 - Links are in brackets
 - Mathematical formula exactly like latex
 ** TODO The body - table
-** TODO Source code formatting
+** TODO The body - images
+#+begin_src org
+,#+CAPTION: (extracted from https://en.wikipedia.org/wiki/Getting_Things_Done)
+,#+NAME:   fig:gtd
+,#+ATTR_HTML: :width 75%
+,#+ATTR_LATEX: :width 0.75\linewidth
+[[./assets/images/GTDcanonical.png]]
+#+end_src
 ** TODO Exporting
 - Different kind of exporter (HTML, reveal, LaTeX, Beamer, Markdown, ...)
 - Command to export = C-c C-e then a dedicated buffer opens:
@@ -346,7 +377,7 @@ CLOSED: [2017-05-18 Thu 14:10]
 - Export it in latex and/or HTML
 * Org-mode - literate programming [0%]
 ** TODO What is literate programming
-- Introduced by D. Knuth [FIXME: ref]
+- Introduced by D. Knuth (FIXME:  ref)
 #+begin_quote
 Literate programming is a programming paradigm introduced by Donald
 Knuth in which a program is given as an explanation of the program
@@ -356,6 +387,11 @@ compilable source code can be generated.
 #+end_quote
 ** TODO How to handle it with org-mode
 ** TODO Dealing with results/source/...
+** TODO Having fun for 5min
+- Update the previous documents to add
+  - A source for which you just want to have the *source* visible in the exported document
+  - A source for which you just want to have the *result* visible in the exported document
+  - A source for which you want to have both the *source* and the *result* visible in the exported document
 * Org-mode/emacs as a "pandoc" equivalent [0%]
 ** But...why ?!
 - Problem: how to deal with massive data/time consuming experiments?
@@ -369,7 +405,7 @@ compilable source code can be generated.
 ** TODO A project example - org part
 ** TODO A project example - gradle part
 ** TODO A project example - to run
-* Conclusion [50%]
+* Conclusion [100%]
 ** DONE Summary
 CLOSED: [2017-05-18 Thu 14:42]
 - (Quick) Introduction to emacs
@@ -384,6 +420,23 @@ CLOSED: [2017-05-18 Thu 14:42]
 - Reproducible research
   - Litterate programming with org-mode
   - Invocating org-mode to generate documentation from a project
-** TODO How to go further
-[FIXME: adding link]
+** DONE How to go further [some interesting links]
+CLOSED: [2017-05-28 Sun 10:32]
+- Emacs - official
+  - The official website: https://www.gnu.org/software/emacs/
+  - The official manual: https://www.gnu.org/software/emacs/manual/html_node/emacs/index.html
+  - An introduction to elisp: https://www.gnu.org/software/emacs/manual/html_node/eintr/index.html
+  - The official elisp manual: https://www.gnu.org/software/emacs/manual/html_node/elisp/index.html
+  - The official emacs FAQ: https://www.gnu.org/software/emacs/manual/html_node/efaq/index.html
+- Org mode - official
+  - The official website: [[http://orgmode.org/]]
+  - The official manual: [[http://orgmode.org/manual/]]
+- Some other interesting places
+  - emacswiki: https://www.emacswiki.org
+  - stackexchange: https://emacs.stackexchange.com
+  - reddit: https://www.reddit.com/r/emacs/
+- Channels (IRC, on irc.freenode.net):
+  - #emacs
+  - #emacs-beginners
+  - #org-mode
 * COMMENT some extra configuration
