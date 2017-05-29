@@ -1,0 +1,18 @@
+* Travel
+:PROPERTIES:
+:CATEGORY: Deplacement
+:END:
+** SPCC - Crete [66%]
+*** DONE Book the flight
+CLOSED: [2017-05-28 Sun 16:37]
+*** DONE Book the hotel
+CLOSED: [2017-05-28 Sun 16:37]
+*** TODO fill the Form
+SCHEDULED: <2017-06-02 Fri>
+** Interspeech - Stockholm [0%]
+SCHEDULED: <2017-05-28 Sun +3d>
+*** TODO Register to the conference
+DEADLINE: <2017-06-21 Wed>
+*** TODO Book the flight
+*** TODO Book the hotel
+*** TODO Fill the form

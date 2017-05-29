@@ -1,0 +1,7 @@
+#+CAPTION: Example of a wide table
+#+ATTR_LATEX: :float multicolumn
+| A       | B          | C       | D          | E       | F          | G       | H          |
+|---------+------------+---------+------------+---------+------------+---------+------------|
+| foo bar | baz boggle | foo bar | baz boggle | foo bar | baz boggle | foo bar | baz boggle |
+| foo bar | baz boggle | foo bar | baz boggle | foo bar | baz boggle | foo bar | baz boggle |
+| foo bar | baz boggle | foo bar | baz boggle | foo bar | baz boggle | foo bar | baz boggle |
