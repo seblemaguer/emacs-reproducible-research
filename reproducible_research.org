@@ -4,7 +4,7 @@
 #+DATE: 12 May 2017
 #+DESCRIPTION:
 #+KEYWORDS:
-#+LANGUAGE:  fr
+#+LANGUAGE:  en
 #+OPTIONS:   H:2 num:t toc:nil  \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t
 #+SELECT_TAGS: export
 #+EXCLUDE_TAGS: noexport
@@ -58,8 +58,9 @@
 # ##############################################################################################################################
 
 
-* Introduction
-** Introduction
+* Introduction [100%]
+** DONE Introduction
+CLOSED: [2017-05-29 Mon 13:37]
 #+begin_quote
 *What do I mean by reproducible research*
 
@@ -70,7 +71,7 @@
 
 #+begin_quote
 *Why using emacs ?*
-- Because we have all the tools to help you in this editor
+- Because you have all the tools to help you in this editor
 #+end_quote
 
 #+begin_quote
@@ -85,14 +86,22 @@ CLOSED: [2017-05-16 Tue 21:24]
   - Development started during the 70s
   - Multiple variation *GNU Emacs*, XEmacs, AquaMacs...
   - Compatible Unix-Like (*Linux*, macos, ...) + windows
+  - Configuration = based on a dedicated language: emacs lisp
 - Global key concepts
   - 3 modifier keys = CTRL, MAJ, META
   - META = alt on PC,  command on MAC
-- Commands (FIXME:  minor explanation)
-** TODO Graphic overview
-(FIXME:  adding a screenshot)
+- Commands = instructions to run. Can be associated with shortcuts!
+- minibuffer: where commands are launched/messages are indicated
 ** TODO Graphic overview with a legend
-(FIXME:  adding a screenshot)
+#+ATTR_HTML: :width 45%
+[[file:assets/images/emacs_concepts.png]]
+- 1 file: build.gradle)
+- 3 buffers: build.gradle, *scratch*, *Messages*
+  - *scratch* is a special buffer for scratch notes
+  - *Messages* is a special buffer which contains all the messages sent by emacs
+- 3 windows: 1 at the top, 2 at the bottom
+- 1 frame: emacs-bin@slemaguer-perso
+- 1 minibuffer indicating the message "Beginning of buffer"
 ** DONE Major mode / minor mode
 CLOSED: [2017-05-28 Sun 09:20]
 - Emacs adaptation = modes
@@ -229,6 +238,11 @@ CLOSED: [2017-05-16 Tue 22:11]
 - How to:
   1. Retrieve the following shell script (FIXME:  url)
   2. Execute the shell script with the following syntax
+#+begin_src sh
+bash server_adapt.sh -j 2 $HOME/environment/local
+#+end_src
+- On the configuration part
+  1. Uncomment the "server part" in the init.el file
 - Try to run the emacs command
 * Project/scm [40%]
 ** DONE Project management
@@ -265,7 +279,7 @@ CLOSED: [2017-05-18 Thu 13:50]
 (FIXME:  Adding video)
 ** TODO Git-timemachine - example
 (FIXME:  Adding video)
-* Org-mode - Introduction [33%]
+* Org-mode - Introduction [37%]
 ** DONE General informations
 CLOSED: [2017-05-19 Fri 16:10]
 #+begin_quote
@@ -285,15 +299,33 @@ CLOSED: [2017-05-28 Sun 10:51]
 #+ATTR_HTML: :width 75%
 [[./assets/images/GTDcanonical.png]]
 #+end_quote
-** TODO Task management - An example
-** TODO Task management - How to change
-** TODO Agenda/dash/...
+** DONE Task management - An example
+CLOSED: [2017-05-28 Sun 16:50]
+#+include: "~/work/courses/current/teaching/reproducible-research/assets/files/example_todo.org" src org :eval never-export
+** TODO Task management - Rendering
+(FIXME: how to change)
+** TODO Task management - Some important shortcuts
+- C-c t = switch todo/done/... tags
+- C-c C-d = define a deadline for the current task
+- C-c C-s = schedule the current task
+** TODO Dash
+- Allows you to have a global view of the project in progress
+- Command = org-dashboard-display
+- Shortcut = <f4> d
+
+(FIXME: screenshot)
+** TODO Agenda
+- Allows you to visualize your "calendar"
+- Command = org-agenda
+- Shortcut = <f12>
+
+(FIXME: screenshot)
 ** TODO Capturing
-- Principle =
+- Allows to interrupt briefly your workflow to add a reminder in your global todolist
 - Example:
 (FIXME:  adding videos)
--
-* Org-mode - writing documents [28%]
+- To extend this nice feature, see section (FIXME: ref) in the configuration file
+* Org-mode - Writing documents [75%]
 ** DONE The header
 CLOSED: [2017-05-18 Thu 13:58]
 - Summary = https://github.com/fniessen/refcard-org-mode
@@ -349,7 +381,8 @@ CLOSED: [2017-05-18 Thu 14:10]
     1. list121 as enumerate
     2. list122 as enumarate
 #+end_src
-** TODO The body - content formatting
+** DONE The body - content formatting
+CLOSED: [2017-05-28 Sun 19:55]
 - Summary = https://github.com/fniessen/refcard-org-mode
 - Text formatting
 #+begin_src org :eval never-export
@@ -358,9 +391,29 @@ CLOSED: [2017-05-18 Thu 14:10]
 - Paragraph separated by an empty line
 - Horizontal rule is done using *5* dashes
 - Links are in brackets
-- Mathematical formula exactly like latex
-** TODO The body - table
-** TODO The body - images
+- Mathematical formula exactly like latex :
+#+begin_src org :eval never-export
+\begin{equation}
+f_1(x) = \frac{1}{N} \sum_{r=1}^R log(x(r)^2)
+\end{equation}
+#+end_src
+\begin{equation}
+f_1(x) = \frac{1}{N} \sum_{r=1}^R log(x(r)^2)
+\end{equation}
+
+** DONE The body - table
+CLOSED: [2017-05-28 Sun 17:48]
+- Command = org-table-create
+#+include: "~/work/courses/current/teaching/reproducible-research/assets/files/example_table.org" src org :eval never-export
+#+include: "~/work/courses/current/teaching/reproducible-research/assets/files/example_table.org"
+- Row separator = new line
+- Column separator = "|"
+- horizontal line = "|---+---|"
+  - "|" = first/end column indicator
+  - "-" = filler
+  - "+" = column separator
+** DONE The body - images
+CLOSED: [2017-05-28 Sun 17:53]
 #+begin_src org
 ,#+CAPTION: (extracted from https://en.wikipedia.org/wiki/Getting_Things_Done)
 ,#+NAME:   fig:gtd
@@ -368,15 +421,33 @@ CLOSED: [2017-05-18 Thu 14:10]
 ,#+ATTR_LATEX: :width 0.75\linewidth
 [[./assets/images/GTDcanonical.png]]
 #+end_src
+- do you remember this slide "Task management - gtd principle" ?
+** TODO The body - interesting shortcuts
+- In the text
+  - C-c C-l create a link
+- Header
+  - C-<return> create an item at the same level of the current header (*no list*)
+  - M-<left/right-arrow> 	Change bullet and numbering type
+- List
+  - M-<return> create an item at the same level in the list or header
+  - Shift-<left/right-arrow> 	Change bullet and numbering type
+- In a table
+  - <pipe><hypen> followed by tab = create a table or complete the row
+  -
 ** TODO Exporting
 - Different kind of exporter (HTML, reveal, LaTeX, Beamer, Markdown, ...)
 - Command to export = C-c C-e then a dedicated buffer opens:
-** TODO Having fun for 5min
+
+(FIXME: screenshot)
+
+** DONE Having fun for 5min
+CLOSED: [2017-05-28 Sun 17:54]
 - Let's try to write a small document
 - Try to use everything we wrote before (a table, an image, ...)
 - Export it in latex and/or HTML
-* Org-mode - literate programming [0%]
-** TODO What is literate programming
+* Org-mode - Literate programming [25%]
+** DONE What is literate programming
+CLOSED: [2017-05-28 Sun 17:54]
 - Introduced by D. Knuth (FIXME:  ref)
 #+begin_quote
 Literate programming is a programming paradigm introduced by Donald
@@ -386,25 +457,93 @@ snippets of macros and traditional source code, from which a
 compilable source code can be generated.
 #+end_quote
 ** TODO How to handle it with org-mode
+- *org-babel* is handling that
+- Insert code using the following syntax
+- Including a script file using the following syntax
+
+#+begin_src org
+
+#+end_src
 ** TODO Dealing with results/source/...
 ** TODO Having fun for 5min
 - Update the previous documents to add
   - A source for which you just want to have the *source* visible in the exported document
   - A source for which you just want to have the *result* visible in the exported document
   - A source for which you want to have both the *source* and the *result* visible in the exported document
-* Org-mode/emacs as a "pandoc" equivalent [0%]
-** But...why ?!
+* Org-mode/emacs as a "pandoc" equivalent [60%]
+** DONE But...why ?!
+CLOSED: [2017-05-29 Mon 16:12]
 - Problem: how to deal with massive data/time consuming experiments?
 - Solution:
   1. Design the experiments using workflow management tools (make, gradle, ...)
   2. In the last *experimental stage* Format the results in a certain way (csv, ....)
   3. Design the org document assuming these results are available
   4. Call emacs to render the org-mode
-** TODO Preliminary configuration
-** TODO A project example - architecture
+- Preliminary informations:
+  - The default configuration is *not* used !
+  - An emacs configuration is embedded in the project
+  - Gradle is used to control the process
+** DONE A project example - architecture
+CLOSED: [2017-05-29 Mon 16:12]
+#+begin_example
+.
+├── build.gradle
+├── gradle
+├── gradlew
+├── gradlew.bat
+├── scripts
+│   ├── org-export-beamer.el
+│   ├── org-export-cli.el
+│   ├── org-export-html.el
+│   ├── org-export-latex.el
+│   └── org-export-reveal.el
+├── settings.gradle
+└── src
+    ├── assets
+    ├── biblio.bib
+    └── paper.org
+#+end_example
+- We provide....
+  - Gradle configuration (build.gradle, settings.gradle gradle*)
+  - Emacs exporter scripts (scripts/*.el)
+- We need...
+  - the source of the document (src/paper.org)
+  - the optional bibliography (src/biblio.bib)
+  - the assets which *are downloaded* into src/assets
+- The output will be put in the build directory
 ** TODO A project example - org part
+- Nothing different than before except.....
+  - we assume the presence of the assets
+- A glimpse of the source code
+
+(FIXME: source)
 ** TODO A project example - gradle part
-** TODO A project example - to run
+- That is where the process is put into place
+- First retrieve the assets
+#+begin_src groovy
+// (FIXME: todo)
+#+end_src
+- Then process the assets
+#+begin_src groovy
+task processAssetsLatex(type: Copy) {
+    from fileTree('src').include('assets/**')
+    into "$buildDir/${rootProject.name}/latex"
+}
+#+end_src
+- Finally generate the document (latex in this example)
+#+begin_src groovy
+task org2latex(type: Exec, dependsOn: "processAssetsLatex") {
+    def orgFile = file("src/slides.org")
+    def pdfFile = file("$buildDir/${rootProject.name}/latex/index.pdf")
+    inputs.files orgFile, processAssetsLatex
+    outputs.files pdfFile
+
+    commandLine "emacs-bin", "-q", "--no-site-file", "--evaluate", "--script", "scripts/org-export-beamer.el", "--infile", orgFile, "--outfile", pdfFile
+}
+#+end_src
+** DONE A project example - to run
+CLOSED: [2017-05-29 Mon 16:17]
+- That is your time to have fun :D
 * Conclusion [100%]
 ** DONE Summary
 CLOSED: [2017-05-18 Thu 14:42]
@@ -431,6 +570,7 @@ CLOSED: [2017-05-28 Sun 10:32]
 - Org mode - official
   - The official website: [[http://orgmode.org/]]
   - The official manual: [[http://orgmode.org/manual/]]
+  - A nice cookbook: http://ehneilsen.net/notebook/orgExamples/org-examples.html
 - Some other interesting places
   - emacswiki: https://www.emacswiki.org
   - stackexchange: https://emacs.stackexchange.com
