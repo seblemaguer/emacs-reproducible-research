@@ -124,7 +124,7 @@ CLOSED: [2017-05-17 Wed 13:31]
   - You can put everything there...
   - Or import other files
   - *Not the focus of this course*: a baseline configuration will be provided later
-* Hands-on emacs [75%]
+* Hands-on emacs [100%]
 ** DONE Environment preparation
 CLOSED: [2017-05-17 Wed 12:50]
 - Pre-configuration
@@ -155,10 +155,13 @@ bash emacs_install.sh -j 2 $HOME/environment/local
 #+begin_src sh
 emacs
 #+end_src
-** TODO The most important keys in the world ! (or maybe not but still)
-- M-x = starting a command
+** DONE The most important keys in the world ! (or maybe not but still)
+CLOSED: [2017-05-29 Mon 21:28]
+- Emacs relies *massively* on shortcuts (but are not mandatory !)
+- M-x = starting a command (that is the only mandatory one)
 - C-h m (mode), C-h k (keys), C-h f (function) = documentation shortcut
 - C-x f (open), C-x s (save), C-x w (save as) = open file/save buffer
+- C-<space> (set/unset selection mark), M-w (copy), C-w (cut), C-y (paste)
 - refcard = https://www.gnu.org/software/emacs/refcards/pdf/refcard.pdf
 ** DONE Having fun for 5min :D
 CLOSED: [2017-05-16 Tue 22:11]
@@ -172,7 +175,7 @@ CLOSED: [2017-05-16 Tue 22:11]
 - Do you have an idea of how to improve
 *** Some questions ?
 - Don't hesitate to be exhaustive or say if you don't understand something
-* Hands-on configured emacs [40%]
+* Hands-on configured emacs [60%]
 ** DONE Package management
 CLOSED: [2017-05-17 Wed 13:06]
 - *use-package* = helper to install and *configure* a package
@@ -233,10 +236,11 @@ CLOSED: [2017-05-16 Tue 22:11]
 - Try to open some tex file
 - Try to query the documentation, ...
 - *Try to spot the differences*
-** TODO Bonus: configure a server/client architecture
+** DONE Bonus: configure a server/client architecture
+CLOSED: [2017-05-29 Mon 21:32]
 - Why? because it's faster :)
 - How to:
-  1. Retrieve the following shell script (FIXME:  url)
+  1. Retrieve the following shell script: https://raw.githubusercontent.com/seblemaguer/emacs-reproducible-research/master/assets/scripts/server_adapt.sh
   2. Execute the shell script with the following syntax
 #+begin_src sh
 bash server_adapt.sh -j 2 $HOME/environment/local
