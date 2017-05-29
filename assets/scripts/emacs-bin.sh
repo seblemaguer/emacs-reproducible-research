@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/bash
 
 EMACS_DIR=$HOME/environment/local/bin
 EMACS_CMD=$EMACS_DIR/emacs-bin
