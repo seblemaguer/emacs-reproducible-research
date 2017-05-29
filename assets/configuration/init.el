@@ -44,3 +44,7 @@
 
 ;; Initialise everything now
 (org-babel-load-file "~/.emacs.d/main.org")
+
+
+;; ;; Server part
+;; (server-start)
