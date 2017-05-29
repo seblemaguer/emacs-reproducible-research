@@ -466,17 +466,23 @@ compilable source code can be generated.
 CLOSED: [2017-05-29 Mon 21:50]
 - *org-babel* is handling that
 - Insert code using the following syntax
-- Including a script file using the following syntax
-
 #+include: "~/work/courses/current/teaching/reproducible-research/assets/files/example_src.org" src org :eval never-export
+- Including a script file using the following syntax
+#+begin_src org :eval never-export
+#+include: "~/work/courses/current/teaching/reproducible-research/assets/files/example_src.org" src org :eval never-export
+#+end_src
+- Rendering results:
 #+include: "~/work/courses/current/teaching/reproducible-research/assets/files/example_src.org"
 ** DONE How to handle it with org-mode - actually working
 CLOSED: [2017-05-29 Mon 21:53]
 - *org-babel* is handling that
 - Insert code using the following syntax
-- Including a script file using the following syntax
-
 #+include: "~/work/courses/current/teaching/reproducible-research/assets/files/example_src_results.org" src org :eval never-export
+- Including a script file using the following syntax
+#+begin_src org :eval never-export
+#+include: "~/work/courses/current/teaching/reproducible-research/assets/files/example_src.org" src org :eval never-export
+#+end_src
+- Rendering results:
 #+include: "~/work/courses/current/teaching/reproducible-research/assets/files/example_src_results.org"
 ** DONE Dealing with results/source/...
 CLOSED: [2017-05-29 Mon 22:36]
