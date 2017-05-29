@@ -1,0 +1,3 @@
+#+begin_src python  :results output :exports both
+print("ok, I'm fine")
+#+end_src

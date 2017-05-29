@@ -308,7 +308,7 @@ CLOSED: [2017-05-28 Sun 10:51]
 CLOSED: [2017-05-28 Sun 16:50]
 #+include: "~/work/courses/current/teaching/reproducible-research/assets/files/example_todo.org" src org :eval never-export
 ** TODO Task management - Rendering
-(FIXME: how to change)
+(FIXME: screenshot)
 ** TODO Task management - Some important shortcuts
 - C-c t = switch todo/done/... tags
 - C-c C-d = define a deadline for the current task
@@ -330,7 +330,7 @@ CLOSED: [2017-05-28 Sun 16:50]
 - Example:
 (FIXME:  adding videos)
 - To extend this nice feature, see section (FIXME: ref) in the configuration file
-* Org-mode - Writing documents [75%]
+* Org-mode - Writing documents [87%]
 ** DONE The header
 CLOSED: [2017-05-18 Thu 13:58]
 - Summary = https://github.com/fniessen/refcard-org-mode
@@ -427,7 +427,9 @@ CLOSED: [2017-05-28 Sun 17:53]
 [[./assets/images/GTDcanonical.png]]
 #+end_src
 - do you remember this slide "Task management - gtd principle" ?
-** TODO The body - interesting shortcuts
+** DONE The body - interesting shortcuts
+CLOSED: [2017-05-29 Mon 21:40]
+- More complete information at = http://orgmode.org/orgcard.pdf
 - In the text
   - C-c C-l create a link
 - Header
@@ -438,19 +440,18 @@ CLOSED: [2017-05-28 Sun 17:53]
   - Shift-<left/right-arrow> 	Change bullet and numbering type
 - In a table
   - <pipe><hypen> followed by tab = create a table or complete the row
-  -
 ** TODO Exporting
 - Different kind of exporter (HTML, reveal, LaTeX, Beamer, Markdown, ...)
 - Command to export = C-c C-e then a dedicated buffer opens:
 
-(FIXME: screenshot)
+(FIXME: video)
 
 ** DONE Having fun for 5min
 CLOSED: [2017-05-28 Sun 17:54]
 - Let's try to write a small document
 - Try to use everything we wrote before (a table, an image, ...)
 - Export it in latex and/or HTML
-* Org-mode - Literate programming [25%]
+* Org-mode - Literate programming [100%]
 ** DONE What is literate programming
 CLOSED: [2017-05-28 Sun 17:54]
 - Introduced by D. Knuth (FIXME:  ref)
@@ -461,16 +462,31 @@ logic in a natural language, such as English, interspersed with
 snippets of macros and traditional source code, from which a
 compilable source code can be generated.
 #+end_quote
-** TODO How to handle it with org-mode
+** DONE How to handle it with org-mode
+CLOSED: [2017-05-29 Mon 21:50]
 - *org-babel* is handling that
 - Insert code using the following syntax
 - Including a script file using the following syntax
 
-#+begin_src org
+#+include: "~/work/courses/current/teaching/reproducible-research/assets/files/example_src.org" src org :eval never-export
+#+include: "~/work/courses/current/teaching/reproducible-research/assets/files/example_src.org"
+** DONE How to handle it with org-mode - actually working
+CLOSED: [2017-05-29 Mon 21:53]
+- *org-babel* is handling that
+- Insert code using the following syntax
+- Including a script file using the following syntax
 
-#+end_src
-** TODO Dealing with results/source/...
-** TODO Having fun for 5min
+#+include: "~/work/courses/current/teaching/reproducible-research/assets/files/example_src_results.org" src org :eval never-export
+#+include: "~/work/courses/current/teaching/reproducible-research/assets/files/example_src_results.org"
+** DONE Dealing with results/source/...
+CLOSED: [2017-05-29 Mon 22:36]
+#+include: "~/work/courses/current/teaching/reproducible-research/assets/files/example_src_full.org" src org :eval never-export
+** DONE Deal - output
+CLOSED: [2017-05-29 Mon 22:58]
+#+include: "~/work/courses/current/teaching/reproducible-research/assets/files/example_src_full.org"
+
+** DONE Having fun for 5min
+CLOSED: [2017-05-29 Mon 21:55]
 - Update the previous documents to add
   - A source for which you just want to have the *source* visible in the exported document
   - A source for which you just want to have the *result* visible in the exported document
@@ -488,6 +504,7 @@ CLOSED: [2017-05-29 Mon 16:12]
   - The default configuration is *not* used !
   - An emacs configuration is embedded in the project
   - Gradle is used to control the process
+  - Scripts are based on the one proposed in https://github.com/nhoffman/org-export
 ** DONE A project example - architecture
 CLOSED: [2017-05-29 Mon 16:12]
 #+begin_example

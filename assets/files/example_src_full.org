@@ -1,0 +1,15 @@
+First we load ggplot and the data
+#+begin_src R :session tuto4_R :cache yes :exports both :results output org :tangle yes
+  library(ggplot2)
+  data <- read.csv(file="assets/files/data.csv", sep=",", header=TRUE)
+  summary(data)
+#+end_src
+
+We plot the histogram
+#+begin_src R :file assets/generated/q1_hist.png :session tuto4_R :cache yes :exports results :results output graphics :tangle yes
+  nb_bins <- 5
+  ggplot(data, aes(x=LangScore)) +
+      geom_histogram(origin = min(data$LangScore),
+                     binwidth = (max(data$LangScore)-min(data$LangScore))/nb_bins) +
+      facet_grid(~Condition)
+#+end_src
