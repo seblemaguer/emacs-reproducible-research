@@ -175,7 +175,7 @@ CLOSED: [2017-05-16 Tue 22:11]
 - Do you have an idea of how to improve
 *** Some questions ?
 - Don't hesitate to be exhaustive or say if you don't understand something
-* Hands-on configured emacs [60%]
+* Hands-on configured emacs [80%]
 ** DONE Package management
 CLOSED: [2017-05-17 Wed 13:06]
 - *use-package* = helper to install and *configure* a package
@@ -220,7 +220,8 @@ CLOSED: [2017-05-17 Wed 13:06]
 - Copy it into =~/.emacs.d/init.el=
 - Open emacs, it should look like that:
 (FIXME:  screenshot)
-** TODO Some main functionalities
+** DONE Some main functionalities
+CLOSED: [2017-05-29 Mon 21:33]
 - Buffer management
   - Using C-x C-b to open the ibuffer list
 - File/directory management
