@@ -671,7 +671,7 @@ by the [[https://github.com/seblemaguer/emacs-reproducible-research/blob/master/
     (use-package magit-gh-pulls :ensure t)
     (use-package magit-gitflow :ensure t)
     (use-package magit-popup :ensure t)
-    (use-package magit-rockstar :ensure t)
+    (use-package magit-rockstar :ensure t))
 
   ;; Magit interfaced with github
   (use-package magithub
