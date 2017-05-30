@@ -1075,84 +1075,84 @@ by the [[https://github.com/seblemaguer/emacs-reproducible-research/blob/master/
 (use-package company-statistics :ensure t)
 #+end_src
 * Org-mode
-** TODO To sort
-#+begin_src emacs-lisp
-  (use-package org-checklist)
-  (use-package ob-exp)
-  (use-package ox-bibtex)
-  (use-package org-protocol)
-#+end_src
 ** Global part
 #+begin_src emacs-lisp
-    (use-package org
-      :ensure t
+  (use-package org
+    :ensure t
+    :config
+
+    ;; Global
+    (setq org-startup-indented t
+          org-enforce-todo-dependencies t
+          org-cycle-separator-lines 2
+          org-blank-before-new-entry (quote ((heading) (plain-list-item . auto)))
+          org-insert-heading-respect-content nil
+          org-reverse-note-order nil
+          org-show-following-heading t
+          org-show-hierarchy-above t
+          org-show-siblings (quote ((default)))
+          org-id-method (quote uuidgen)
+          org-deadline-warning-days 30
+          org-table-export-default-format "orgtbl-to-csv"
+          org-src-window-setup 'other-frame ; Use the current window for C-c ' source editing
+          org-clone-delete-id t
+          org-cycle-include-plain-lists t
+          org-src-fontify-natively t
+          org-hide-emphasis-markers t)
+
+    (use-package org-bullets :ensure t
       :config
+      (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
 
-      ;; Global
-      (setq org-startup-indented t
-            org-enforce-todo-dependencies t
-            org-cycle-separator-lines 2
-            org-blank-before-new-entry (quote ((heading) (plain-list-item . auto)))
-            org-insert-heading-respect-content nil
-            org-reverse-note-order nil
-            org-show-following-heading t
-            org-show-hierarchy-above t
-            org-show-siblings (quote ((default)))
-            org-id-method (quote uuidgen)
-            org-deadline-warning-days 30
-            org-table-export-default-format "orgtbl-to-csv"
-            org-src-window-setup 'other-frame ; Use the current window for C-c ' source editing
-            org-clone-delete-id t
-            org-cycle-include-plain-lists t
-            org-src-fontify-natively t
-            org-hide-emphasis-markers t)
+    ;; TODO to sort
+    (use-package org-checklist)
+    (use-package ob-exp)
+    (use-package ox-bibtex)
+    (use-package org-protocol)
+    (use-package org-dashboard :ensure t)
 
-      (use-package org-bullets :ensure t
-        :config
-        (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
+    ;; Todo part
+    (setq org-todo-keywords '((sequence
+                               "TODO(t)" "REVIEW(r)" "NEXT(n)" "STARTED(s)"
+                               "WAITING(w)" "DELEGATED(e)" "MAYBE(m)" "|"
+                               "DONE(d)" "NOTE(n)" "DEFERRED(f)" "CANCELLED(c@/!)"))
 
-      ;; Todo part
-      (setq org-todo-keywords '((sequence
-                                 "TODO(t)" "REVIEW(r)" "NEXT(n)" "STARTED(s)"
-                                 "WAITING(w)" "DELEGATED(e)" "MAYBE(m)" "|"
-                                 "DONE(d)" "NOTE(n)" "DEFERRED(f)" "CANCELLED(c@/!)"))
-
-            org-todo-state-tags-triggers '(("CANCELLED" ("CANCELLED" . t))
-                                           ("WAITING" ("WAITING" . t))
-                                           ("HOLD" ("WAITING" . t) ("HOLD" . t))
-                                           (done ("WAITING") ("HOLD"))
-                                           ("TODO" ("WAITING") ("CANCELLED") ("HOLD"))
-                                           ("IN PROGRESS" ("NEXT") ("WAITING") ("CANCELLED") ("HOLD"))
-                                           ("NEXT" ("WAITING") ("CANCELLED") ("HOLD"))
-                                           ("DONE" ("WAITING") ("CANCELLED") ("HOLD")))
-            org-todo-keyword-faces '(("TODO" :background "red1" :foreground "black" :weight bold :box (:line-width 2 :style released-button))
-                                     ("REVIEW" :background "orange" :foreground "black" :weight bold :box (:line-width 2 :style released-button))
-                                     ("NEXT" :background "red1" :foreground "black" :weight bold :box (:line-width 2 :style released-button))
-                                     ("STARTED" :background "orange" :foreground "black" :weight bold :box (:line-width 2 :style released-button))
-                                     ("WAITING" :background "yellow" :foreground "black" :weight bold :box (:line-width 2 :style released-button))
-                                     ("DEFERRED" :background "gold" :foreground "black" :weight bold :box (:line-width 2 :style released-button))
-                                     ("DELEGATED" :background "gold" :foreground "black" :weight bold :box (:line-width 2 :style released-button))
-                                     ("MAYBE" :background "gray" :foreground "black" :weight bold :box (:line-width 2 :style released-button))
-                                     ("DONE" :background "forest green" :weight bold :box (:line-width 2 :style released-button))
-                                     ("CANCELLED" :background "lime green" :foreground "black" :weight bold :box (:line-width 2 :style released-button))))
+          org-todo-state-tags-triggers '(("CANCELLED" ("CANCELLED" . t))
+                                         ("WAITING" ("WAITING" . t))
+                                         ("HOLD" ("WAITING" . t) ("HOLD" . t))
+                                         (done ("WAITING") ("HOLD"))
+                                         ("TODO" ("WAITING") ("CANCELLED") ("HOLD"))
+                                         ("IN PROGRESS" ("NEXT") ("WAITING") ("CANCELLED") ("HOLD"))
+                                         ("NEXT" ("WAITING") ("CANCELLED") ("HOLD"))
+                                         ("DONE" ("WAITING") ("CANCELLED") ("HOLD")))
+          org-todo-keyword-faces '(("TODO" :background "red1" :foreground "black" :weight bold :box (:line-width 2 :style released-button))
+                                   ("REVIEW" :background "orange" :foreground "black" :weight bold :box (:line-width 2 :style released-button))
+                                   ("NEXT" :background "red1" :foreground "black" :weight bold :box (:line-width 2 :style released-button))
+                                   ("STARTED" :background "orange" :foreground "black" :weight bold :box (:line-width 2 :style released-button))
+                                   ("WAITING" :background "yellow" :foreground "black" :weight bold :box (:line-width 2 :style released-button))
+                                   ("DEFERRED" :background "gold" :foreground "black" :weight bold :box (:line-width 2 :style released-button))
+                                   ("DELEGATED" :background "gold" :foreground "black" :weight bold :box (:line-width 2 :style released-button))
+                                   ("MAYBE" :background "gray" :foreground "black" :weight bold :box (:line-width 2 :style released-button))
+                                   ("DONE" :background "forest green" :weight bold :box (:line-width 2 :style released-button))
+                                   ("CANCELLED" :background "lime green" :foreground "black" :weight bold :box (:line-width 2 :style released-button))))
 
 
-      ;; Org priority faces
-      ;; Priority definition
-      (setq org-highest-priority ?A
-            org-lowest-priority ?E
-            org-default-priority ?C
-            org-priority-faces '((?A . (:foreground "red" :weight bold))
-                                 (?B . (:foreground "orange"  :weight bold))
-                                 (?C . (:foreground "orange"))
-                                 (?D . (:foreground "forest green"))
-                                 (?E . (:foreground "forest green"))))
+    ;; Org priority faces
+    ;; Priority definition
+    (setq org-highest-priority ?A
+          org-lowest-priority ?E
+          org-default-priority ?C
+          org-priority-faces '((?A . (:foreground "red" :weight bold))
+                               (?B . (:foreground "orange"  :weight bold))
+                               (?C . (:foreground "orange"))
+                               (?D . (:foreground "forest green"))
+                               (?E . (:foreground "forest green"))))
 
-      ;; Archiving
-      (setq org-archive-mark-done t
-            org-log-done 'time
-            org-archive-location "%s_archive::* Archived Tasks")
-      )
+    ;; Archiving
+    (setq org-archive-mark-done t
+          org-log-done 'time
+          org-archive-location "%s_archive::* Archived Tasks")
+    )
 #+end_src
 ** Calendar / Agenda
 #+begin_src emacs-lisp
