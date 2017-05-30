@@ -177,7 +177,7 @@ CLOSED: [2017-05-16 Tue 22:11]
 - Do you have an idea of how to improve
 *** Some questions ?
 - Don't hesitate to be exhaustive or say if you don't understand something
-* Hands-on configured emacs [80%]
+* Hands-on configured emacs [100%]
 ** DONE Package management
 CLOSED: [2017-05-17 Wed 13:06]
 - *use-package* = helper to install and *configure* a package
@@ -217,11 +217,13 @@ CLOSED: [2017-05-17 Wed 13:06]
     )
 #+end_src
 - To list available packages use the command: =list-packages=
-** TODO Install a baseline configuration
+** DONE Install a baseline configuration
+CLOSED: [2017-05-31 Wed 00:44]
 - Retrieve the following file: https://raw.githubusercontent.com/seblemaguer/emacs-reproducible-research/master/assets/configuration/init.el
 - Copy it into =~/.emacs.d/init.el=
 - Open emacs, it should look like that:
-(FIXME:  screenshot)
+#+ATTR_HTML: :width 40%
+[[./assets/images/emacs_configured.png]]
 ** DONE Some main functionalities
 CLOSED: [2017-05-29 Mon 21:33]
 - Buffer management
@@ -509,7 +511,7 @@ CLOSED: [2017-05-29 Mon 21:55]
   - A source for which you just want to have the *source* visible in the exported document
   - A source for which you just want to have the *result* visible in the exported document
   - A source for which you want to have both the *source* and the *result* visible in the exported document
-* Org-mode/emacs as a "pandoc" equivalent [60%]
+* Org-mode/emacs as a "pandoc" equivalent [100%]
 ** DONE But...why ?!
 CLOSED: [2017-05-29 Mon 16:12]
 - Problem: how to deal with massive data/time consuming experiments?
@@ -552,17 +554,21 @@ CLOSED: [2017-05-29 Mon 16:12]
   - the optional bibliography (src/biblio.bib)
   - the assets which *are downloaded* into src/assets
 - The output will be put in the build directory
-** TODO A project example - org part
+** DONE A project example - org part
+CLOSED: [2017-05-31 Wed 00:17]
+- see src/paper.org
 - Nothing different than before except.....
   - we assume the presence of the assets
-- A glimpse of the source code
-
-(FIXME: source)
-** TODO A project example - gradle part
+** DONE A project example - gradle part
+CLOSED: [2017-05-31 Wed 00:40]
 - That is where the process is put into place
 - First retrieve the assets
 #+begin_src groovy
-// (FIXME: todo)
+  task downloadAssets(type: Download) {
+      src "http://www.coli.uni-saarland.de/~slemaguer/attachments/example_gradle_emacs/values.csv"
+      dest "src/assets/values.csv"
+      overwrite false
+  }
 #+end_src
 - Then process the assets
 #+begin_src groovy
