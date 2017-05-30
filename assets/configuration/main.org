@@ -696,10 +696,6 @@ by the [[https://github.com/seblemaguer/emacs-reproducible-research/blob/master/
 #+end_src
 ** Some global shortcut management
 #+begin_src emacs-lisp
-  (defun show-my-travis-projects ()
-    (interactive)
-    (travis-show-projects "seblemaguer")
-    )
 
   (defhydra hydra-projectile (:color blue :hint nil :idle 0.4)
     "
@@ -804,7 +800,7 @@ by the [[https://github.com/seblemaguer/emacs-reproducible-research/blob/master/
         ╭─────────────────────────────────────────────────────────────────────┴────────╯
           [_d_] dash projects     [_p_] projectile
           [_f_] fixmee            [_c_] org-capture
-          [_m_] magit             [_t_] travis status
+          [_m_] magit
         --------------------------------------------------------------------------------
               "
     ("<ESC>" nil "quit")
@@ -813,7 +809,6 @@ by the [[https://github.com/seblemaguer/emacs-reproducible-research/blob/master/
     ("p"   hydra-projectile/body)
     ("f"   hydra-fixmee/body)
     ("m"   hydra-magit/body)
-    ("t"   show-my-travis-projects)
     )
 
 
