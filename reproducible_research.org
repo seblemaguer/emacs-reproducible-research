@@ -78,7 +78,7 @@ CLOSED: [2017-05-29 Mon 13:37]
 *Some pre-requisite*
 - Linux ubuntu 16.04 / bash
 #+end_quote
-* Emacs basics [60%]
+* Emacs basics [100%]
 ** DONE General informations
 CLOSED: [2017-05-16 Tue 21:24]
 - Global informations
@@ -92,16 +92,18 @@ CLOSED: [2017-05-16 Tue 21:24]
   - META = alt on PC,  command on MAC
 - Commands = instructions to run. Can be associated with shortcuts!
 - minibuffer: where commands are launched/messages are indicated
-** TODO Graphic overview with a legend
-#+ATTR_HTML: :width 45%
-[[file:assets/images/emacs_concepts.png]]
-- 1 file: build.gradle)
+** DONE Graphic overview with a legend
+CLOSED: [2017-05-30 Tue 19:03]
+- 1 file: build.gradle
 - 3 buffers: build.gradle, *scratch*, *Messages*
   - *scratch* is a special buffer for scratch notes
   - *Messages* is a special buffer which contains all the messages sent by emacs
 - 3 windows: 1 at the top, 2 at the bottom
 - 1 frame: emacs-bin@slemaguer-perso
 - 1 minibuffer indicating the message "Beginning of buffer"
+
+#+ATTR_HTML: :width 35%
+[[file:assets/images/emacs_concepts.png]]
 ** DONE Major mode / minor mode
 CLOSED: [2017-05-28 Sun 09:20]
 - Emacs adaptation = modes
@@ -130,7 +132,7 @@ CLOSED: [2017-05-17 Wed 12:50]
 - Pre-configuration
   - Package installation (ubuntu)
 #+begin_src sh
-sudo apt-get install (FIXME:  package)
+sudo apt-get install build-essential libglib2.0-dev imagemagick libgtk-3-dev libpoppler-dev libpoppler-glib-dev
 #+end_src
   - Copy the following the following profile into ~/.profile : https://raw.githubusercontent.com/seblemaguer/emacs-reproducible-research/master/assets/configuration/profile
   - For future use Adapt your bashrc by adding
@@ -249,7 +251,7 @@ bash server_adapt.sh -j 2 $HOME/environment/local
 - On the configuration part
   1. Uncomment the "server part" in the init.el file
 - Try to run the emacs command
-* Project/scm [40%]
+* Project/scm [100%]
 ** DONE Project management
 CLOSED: [2017-05-18 Thu 13:39]
 - Multiple tools available but we focus on *projectile*
@@ -265,8 +267,9 @@ CLOSED: [2017-05-18 Thu 13:39]
 - Some useful commands
   - C-c p f = open file *in the project*
   - C-c p h = open helm to manipulate projectile
-** TODO Projectile - example
-(FIXME:  Adding video)
+** DONE Projectile - example
+CLOSED: [2017-05-30 Tue 19:04]
+- DEMO
 ** DONE Git
 CLOSED: [2017-05-18 Thu 13:50]
 - Main tools is *magit*
@@ -280,11 +283,13 @@ CLOSED: [2017-05-18 Thu 13:50]
   - Tool = magit-timemachine
   - Repository = https://github.com/pidu/git-timemachine
   - Command = =git-timemachine=
-** TODO Magit - example
-(FIXME:  Adding video)
-** TODO Git-timemachine - example
-(FIXME:  Adding video)
-* Org-mode - Introduction [37%]
+** DONE Magit - example
+CLOSED: [2017-05-30 Tue 19:04]
+- DEMO
+** DONE Git-timemachine - example
+CLOSED: [2017-05-30 Tue 19:04]
+- DEMO
+* Org-mode - Introduction [62%]
 ** DONE General informations
 CLOSED: [2017-05-19 Fri 16:10]
 #+begin_quote
@@ -307,9 +312,16 @@ CLOSED: [2017-05-28 Sun 10:51]
 ** DONE Task management - An example
 CLOSED: [2017-05-28 Sun 16:50]
 #+include: "~/work/courses/current/teaching/reproducible-research/assets/files/example_todo.org" src org :eval never-export
-** TODO Task management - Rendering
-(FIXME: screenshot)
-** TODO Task management - Some important shortcuts
+** DONE Task management - Rendering
+CLOSED: [2017-05-30 Tue 15:06]
+#+begin_center
+#+NAME:   fig:rendering_todo
+#+ATTR_HTML: :width 50%
+[[./assets/images/todo_rendering.png]]
+#+end_center
+** DONE Task management - Some important shortcuts
+CLOSED: [2017-05-30 Tue 15:06]
+- Summary = https://github.com/fniessen/refcard-org-mode
 - C-c t = switch todo/done/... tags
 - C-c C-d = define a deadline for the current task
 - C-c C-s = schedule the current task
@@ -327,10 +339,9 @@ CLOSED: [2017-05-28 Sun 16:50]
 (FIXME: screenshot)
 ** TODO Capturing
 - Allows to interrupt briefly your workflow to add a reminder in your global todolist
-- Example:
-(FIXME:  adding videos)
 - To extend this nice feature, see section (FIXME: ref) in the configuration file
-* Org-mode - Writing documents [87%]
+- DEMO
+* Org-mode - Writing documents [100%]
 ** DONE The header
 CLOSED: [2017-05-18 Thu 13:58]
 - Summary = https://github.com/fniessen/refcard-org-mode
@@ -440,12 +451,11 @@ CLOSED: [2017-05-29 Mon 21:40]
   - Shift-<left/right-arrow> 	Change bullet and numbering type
 - In a table
   - <pipe><hypen> followed by tab = create a table or complete the row
-** TODO Exporting
+** DONE Exporting
+CLOSED: [2017-05-30 Tue 19:05]
 - Different kind of exporter (HTML, reveal, LaTeX, Beamer, Markdown, ...)
 - Command to export = C-c C-e then a dedicated buffer opens:
-
-(FIXME: video)
-
+- DEMO
 ** DONE Having fun for 5min
 CLOSED: [2017-05-28 Sun 17:54]
 - Let's try to write a small document
@@ -513,6 +523,7 @@ CLOSED: [2017-05-29 Mon 16:12]
   - Scripts are based on the one proposed in https://github.com/nhoffman/org-export
 ** DONE A project example - architecture
 CLOSED: [2017-05-29 Mon 16:12]
+- repository = https://github.com/seblemaguer/example-gradle-emacs
 #+begin_example
 .
 ├── build.gradle
@@ -571,7 +582,13 @@ task org2latex(type: Exec, dependsOn: "processAssetsLatex") {
 #+end_src
 ** DONE A project example - to run
 CLOSED: [2017-05-29 Mon 16:17]
-- That is your time to have fun :D
+- To run just run the following command:
+#+begin_src sh
+./gradlew b
+#+end_src
+- Your turn:
+  - create a project based on the current one
+  - Try to generate some documentation
 * Conclusion [100%]
 ** DONE Summary
 CLOSED: [2017-05-18 Thu 14:42]
@@ -607,4 +624,7 @@ CLOSED: [2017-05-28 Sun 10:32]
   - #emacs
   - #emacs-beginners
   - #org-mode
+- *Some advices*
+  - Learning is trying and then using (especially for the shortcuts)
+  - Think about the ratio saving up now/saving up later
 * COMMENT some extra configuration
