@@ -289,7 +289,7 @@ CLOSED: [2017-05-30 Tue 19:04]
 ** DONE Git-timemachine - example
 CLOSED: [2017-05-30 Tue 19:04]
 - DEMO
-* Org-mode - Introduction [62%]
+* Org-mode - Introduction [100%]
 ** DONE General informations
 CLOSED: [2017-05-19 Fri 16:10]
 #+begin_quote
@@ -325,21 +325,23 @@ CLOSED: [2017-05-30 Tue 15:06]
 - C-c t = switch todo/done/... tags
 - C-c C-d = define a deadline for the current task
 - C-c C-s = schedule the current task
-** TODO Dash
+** DONE Dash
+CLOSED: [2017-05-30 Tue 22:54]
 - Allows you to have a global view of the project in progress
 - Command = org-dashboard-display
 - Shortcut = <f4> d
-
-(FIXME: screenshot)
-** TODO Agenda
+- DEMO
+** DONE Agenda
+CLOSED: [2017-05-30 Tue 22:54]
 - Allows you to visualize your "calendar"
 - Command = org-agenda
 - Shortcut = <f12>
+- DEMO
 
-(FIXME: screenshot)
-** TODO Capturing
+** DONE Capturing
+CLOSED: [2017-05-30 Tue 22:56]
 - Allows to interrupt briefly your workflow to add a reminder in your global todolist
-- To extend this nice feature, see section (FIXME: ref) in the configuration file
+- To extend this nice feature, see section (Org-mode > Capturing) in the configuration file (~/.emacs.d/main.org)
 - DEMO
 * Org-mode - Writing documents [100%]
 ** DONE The header
