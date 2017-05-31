@@ -17,16 +17,18 @@ by the [[https://github.com/seblemaguer/emacs-reproducible-research/blob/master/
 * Global part
 ** Startup
 #+begin_src emacs-lisp
-(setq inhibit-startup-message t)
-(setq find-file-suppress-same-file-warnings t)
-(tool-bar-mode -1)
-(menu-bar-mode -1)
-(scroll-bar-mode -1)
+  (setq inhibit-startup-message t)
+  (setq find-file-suppress-same-file-warnings t)
+  (tool-bar-mode -1)
+  (menu-bar-mode -1)
+  (scroll-bar-mode -1)
+  (setq save-abbrevs 'silently)
+  (use-package iso-transl)
 
-(defun custom-startup ()
-  (org-agenda-list 1)
-  (switch-to-buffer "*Org Agenda*"))
-(add-hook 'window-setup-hook 'custom-startup)
+  (defun custom-startup ()
+    (org-agenda-list 1)
+    (switch-to-buffer "*Org Agenda*"))
+  (add-hook 'window-setup-hook 'custom-startup)
 #+end_src
 ** Encoding
 #+begin_src emacs-lisp
