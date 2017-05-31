@@ -1270,7 +1270,7 @@ by the [[https://github.com/seblemaguer/emacs-reproducible-research/blob/master/
           `(
             ("t" "ToDo Entry" entry
              (file+headline "~/Dropbox/org/todo/todo.org" "To sort")
-             "* TODO %?\n  %i\n  %a")))
+             "* TODO %?\n  %i\n  %a"))))
 #+end_src
 ** Project/Org-mode agenda/todo list bindings
 #+begin_src emacs-lisp
